@@ -1,0 +1,16 @@
+<div class="juquinha-tooltip-example">
+  @for (position of positions(); track $index) {
+  <div
+    class="juquinha-tooltip-example__div"
+    juquinhaTooltip
+    tooltipTitle="Título do tooltip"
+    tooltipText="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+    tooltipIcon="select-box"
+    [tooltipPosition]="getPosition(position)"
+  >
+    <p class="juquinha-tooltip-example__text">
+      Exemplo de tooltip - {{ position }}
+    </p>
+  </div>
+  }
+</div>

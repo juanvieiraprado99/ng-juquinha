@@ -1,0 +1,9 @@
+@switch (type()) { @case ("letters") {
+<p class="juquinha-avatar__letters" [ngStyle]="{ color: color() }">
+  {{ value() | acronym : size() }}
+</p>
+} @case ("image") {
+<img class="juquinha-avatar__image" [src]="value()" alt="Avatar" />
+} @case ("icon") {
+<juquinha-icon [name]="value()" [size]="iconSize()" [color]="color()" />
+} }

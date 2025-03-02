@@ -1,0 +1,39 @@
+<juquinha-field-container
+  [disabled]="disabled()"
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hintText]="hintText()"
+  [fieldId]="id()"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+>
+  <div style="height: 100px; width: 100px" class="juquinha-knob-circular">
+    <svg width="100%" height="100%">
+      <circle
+        cx="50"
+        cy="50"
+        r="45"
+        [attr.stroke]="rangeColor()"
+        [attr.stroke-width]="strokeWidth()"
+        fill="none"
+        [attr.stroke-dasharray]="strokeDasharray"
+        [attr.stroke-dashoffset]="0"
+        [attr.transform]="'rotate(125 50 50)'"
+      />
+      <circle
+        cx="50"
+        cy="50"
+        r="45"
+        [attr.stroke]="valueColor()"
+        [attr.stroke-width]="strokeWidth()"
+        fill="none"
+        [attr.stroke-dasharray]="strokeDasharray"
+        [attr.stroke-dashoffset]="progressOffset"
+        [attr.transform]="'rotate(125 50 50)'"
+      />
+    </svg>
+    <span class="value">{{ template() ? value + template() : value }} </span>
+  </div>
+</juquinha-field-container>

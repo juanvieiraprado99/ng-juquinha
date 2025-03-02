@@ -1,0 +1,34 @@
+.example-summary {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-example {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 24px;
+}
+
+.icon-example__icon {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transition: 0.3s;
+  flex: 1 0 7%;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.icon__name {
+  font-size: 12px;
+  max-width: 50px;
+  text-align: center;
+}

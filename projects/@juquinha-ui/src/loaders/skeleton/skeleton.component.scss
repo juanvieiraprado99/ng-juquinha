@@ -1,0 +1,26 @@
+.juquinha-skeleton {
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    animation: loading 1s infinite;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--juquinha-component-skeleton-animation-color),
+      transparent
+    );
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

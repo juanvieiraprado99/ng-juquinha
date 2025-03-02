@@ -1,0 +1,21 @@
+<div class="juquinha-badge" [ngStyle]="colorStyles()">
+  @if (icon()) {
+  <juquinha-icon [name]="icon()" [color]="textColor()" [size]="iconSize()" />
+  }
+
+  <p class="juquinha-badge__name text-bold" [ngStyle]="{ color: textColor() }">
+    {{ label() }}
+  </p>
+
+  <ng-content />
+
+  @if (removable()) {
+  <button
+    class="juquinha-badge__remove-btn"
+    type="button"
+    (click)="handleRemove()"
+  >
+    <juquinha-icon name="close" size="12" [color]="textColor()" />
+  </button>
+  }
+</div>

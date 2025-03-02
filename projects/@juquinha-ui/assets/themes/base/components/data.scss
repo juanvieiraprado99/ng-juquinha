@@ -1,0 +1,16 @@
+/*
+* Shapes, sizes and colors of data components.
+* @group Styles
+*/
+:root {
+  --juquinha-paginator-icon-color: var(--juquinha-neutral-color-700);
+  --juquinha-paginator-page-text-color: var(--juquinha-neutral-color-700);
+  --juquinha-paginator-page-text-color-active: var(--juquinha-neutral-color-0);
+  --juquinha-paginator-page-color-active: var(--juquinha-primary-color);
+  --juquinha-paginator-page-border-radius: 8px;
+  --juquinha-paginator-page-font-weight-active: 600;
+  --juquinha-paginator-page-padding: 8px 12px;
+  --juquinha-paginator-gap: 2px;
+  --juquinha-paginator-page-background-color-hover: var(--juquinha-green-100);
+  --juquinha-paginator-page-border-radius-hover: 8px;
+}

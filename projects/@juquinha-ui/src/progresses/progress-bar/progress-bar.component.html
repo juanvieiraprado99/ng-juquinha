@@ -1,0 +1,10 @@
+<div class="juquinha-progress-bar__header">
+  <p class="text-bold header__label">{{ label() }}</p>
+  <small class="header__value">{{ currentValue() }}%</small>
+</div>
+
+<progress
+  class="juquinha-progress-bar__bar"
+  [value]="currentValue()"
+  [max]="maxValue()"
+></progress>

@@ -1,0 +1,37 @@
+:host {
+  position: relative;
+}
+
+.juquinha-tooltip__filter {
+  width: 15rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--juquinha-modal-border-radius);
+  position: absolute;
+  top: -7rem;
+  left: 0rem;
+  background-color: var(--juquinha-tooltip-filter-background-color);
+
+  box-shadow: 6px 6px 6px #0000001a,
+    -7px -7px 7px var(--juquinha-neutral-color-0);
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-20px);
+
+  &.show {
+    animation: showModal 0.3s forwards;
+  }
+
+  &.last {
+    top: 2rem;
+    left: -15rem;
+  }
+}
+
+@keyframes showModal {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}

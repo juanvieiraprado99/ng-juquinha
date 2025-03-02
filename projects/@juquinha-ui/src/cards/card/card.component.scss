@@ -1,0 +1,47 @@
+:host {
+  background-color: var(--juquinha-card-background-color);
+  padding: var(--juquinha-card-padding);
+  border-radius: var(--juquinha-card-border-radius);
+  box-shadow: var(--juquinha-card-box-shadow);
+  border: var(--juquinha-card-border);
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+.juquinha-card__image {
+  width: 100%;
+  border-radius: var(--juquinha-card-image-border-radius);
+}
+
+.juquinha-card__image {
+  margin-bottom: var(--juquinha-card-image-margin-bottom);
+}
+
+.juquinha-card__icon {
+  margin-bottom: var(--juquinha-card-icon-margin-bottom);
+}
+
+.juquinha-card__badge {
+  margin-bottom: var(--juquinha-card-badge-margin-bottom);
+}
+
+.juquinha-card__content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summary__title {
+  color: var(--juquinha-card-title-color);
+}
+
+.summary__subtitle {
+  color: var(--juquinha-card-subtitle-color);
+}
+
+.juquinha-card__content {
+  color: var(--juquinha-card-content-color);
+}

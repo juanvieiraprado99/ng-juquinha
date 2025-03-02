@@ -1,0 +1,61 @@
+<juquinha-field-container
+  [disabled]="disabled()"
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hintText]="hintText()"
+  [fieldId]="id()"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+>
+  <div class="juquinha-parent-editor">
+    <div class="juquinha-painel-editor">
+      <div class="juquinha-container-all-action">
+        <div class="juquinha-container-all-action-group">
+          <div class="juquinha-container-input-font-size">
+            <juquinha-icon name="font-size" size="16" />
+            <select type="text" id="inputFontSize" (change)="alterFont($event)">
+              <option value="2">10 pt</option>
+              <option value="3">12 pt</option>
+              <option value="4">14 pt</option>
+              <option value="6">16 pt</option>
+              <option value="7">18 pt</option>
+            </select>
+          </div>
+
+          @for (command of commands; track $index) {
+          <button
+            class="juquinha-btn-color"
+            type="button"
+            juquinhaTooltip
+            (click)="applyCommand(command.name)"
+            [tooltipText]="command.description"
+          >
+            <juquinha-icon [name]="command.icon" />
+          </button>
+          }
+        </div>
+      </div>
+    </div>
+
+    @if (!value) {
+    <p class="juquinha-editor__placeholder">{{ placeholder() }}</p>
+    }
+
+    <div
+      #el
+      class="field"
+      contenteditable="true"
+      (change)="handleChange()"
+      (blur)="handleBlur()"
+      [ngClass]="getDefaultStylesClass()"
+    ></div>
+  </div>
+
+  @if (showErrorMessage()) {
+  <div class="field-error">
+    <small class="field-error__text">{{ getErrorMessage() }}</small>
+  </div>
+  }
+</juquinha-field-container>

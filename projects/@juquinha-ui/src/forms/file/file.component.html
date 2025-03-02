@@ -1,0 +1,105 @@
+<input
+  type="file"
+  [id]="id()"
+  (change)="handleSelectFile($event)"
+  [multiple]="multiple()"
+  [accept]="accept()"
+  [disabled]="disabled()"
+  hidden
+/>
+
+<juquinha-label
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [forId]="id()"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+/>
+
+<div
+  class="juquinha-file__container mt-2"
+  [ngStyle]="{
+    'grid-template-columns':
+      direction() === 'horizontal' && value && value.length > 0
+        ? 'repeat(2,1fr)'
+        : '1fr',
+  }"
+>
+  <div
+    class="juquinha-file__upload"
+    [class.dragging]="isDragging()"
+    (dragenter)="handleDragEnter($event)"
+    (dragleave)="handleDragLeave($event)"
+    (dragover)="handleDragOver($event)"
+    (drop)="handleDrop($event)"
+  >
+    <juquinha-icon name="upload" />
+
+    <div class="upload__info">
+      <p class="info__title text-bold">Upload file</p>
+      <p class="info__hint-text">{{ hintText() }}</p>
+    </div>
+
+    <div class="upload__btn">
+      <juquinha-button
+        label="Escolher arquivo"
+        theme="light"
+        (onClick)="handleClickOpen()"
+        type="button"
+        [disabled]="disabled()"
+      />
+    </div>
+
+    @if (showErrorMessage()) {
+    <div class="field-error">
+      <small class="field-error__text">{{ getErrorMessage() }}</small>
+    </div>
+    }
+  </div>
+
+  <div class="juquinha-file__files">
+    @for (file of value; track file; let i = $index) {
+    <div class="files__file">
+      <div class="flex">
+        @if (isImage(file)) {
+        <img
+          [src]="file | imageSrc : fileImgSrcProperty()"
+          [alt]="file.name"
+          class="file__preview"
+        />
+        } @else {
+        <juquinha-icon
+          name="text-file"
+          size="40"
+          color="var(--juquinha-neutral-color-700)"
+        />
+        }
+
+        <div>
+          @if (file.name) {
+          <p class="file__name">{{ file.name }}</p>
+          } @if (file.size && file.size > 0) {
+          <small class="file__size">{{ file.size | fileSize }}</small>
+          }
+        </div>
+      </div>
+
+      <div class="file__actions flex">
+        <ng-content />
+
+        @if (removable() || file.removable) {
+        <button class="actions__action" type="button" (click)="remove(i)">
+          <juquinha-icon
+            name="close"
+            size="16"
+            color="var(--juquinha-neutral-color-700)"
+          />
+        </button>
+        }
+      </div>
+    </div>
+    }
+  </div>
+</div>

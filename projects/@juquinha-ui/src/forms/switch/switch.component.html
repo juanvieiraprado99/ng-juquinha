@@ -1,0 +1,42 @@
+<div class="juquinha-switch__field">
+  <input
+    class="field__input"
+    type="checkbox"
+    [id]="id()"
+    [disabled]="disabled()"
+    hidden
+  />
+  <div
+    class="field__box"
+    [ngClass]="{
+      'box--active': value,
+      'field--disabled': disabled(),
+    }"
+    (click)="handleSwitchState()"
+    [tabIndex]="disabled() ? -1 : 1"
+  >
+    <div class="box__circle"></div>
+  </div>
+
+  <ng-content></ng-content>
+
+  @if (label() || subLabel()) {
+  <juquinha-label
+    [label]="label()"
+    [subLabel]="subLabel()"
+    [forId]="disabled() ? '' : id()"
+    [tooltipTitle]="tooltipTitle()"
+    [tooltipText]="tooltipText()"
+    [tooltipIcon]="tooltipIcon()"
+    [tooltipPosition]="tooltipPosition()"
+  />
+  }
+</div>
+
+@if (showErrorMessage()) {
+<div class="field-error">
+  <small class="field-error__text">{{ getErrorMessage() }}</small>
+</div>
+} @if (hintText()) {
+<juquinha-hint-text [hintText]="hintText()" />
+}

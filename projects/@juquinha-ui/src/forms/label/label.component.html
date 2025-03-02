@@ -1,0 +1,25 @@
+<div
+  class="label"
+  [ngClass]="{
+    'label--float-active': active(),
+    'label--float': mode() === 'float',
+    'label--has-icon-left': hasIconLeft(),
+  }"
+>
+  @if (label()) {
+  <label class="label__text" [for]="forId()">{{ label() }}</label>
+  } @if (subLabel()) {
+  <label class="label__sub-label" [for]="forId()">{{ subLabel() }}</label>
+  } @if (tooltipTitle() || tooltipText() || tooltipIcon()) {
+  <juquinha-icon
+    juquinhaTooltip
+    [tooltipTitle]="tooltipTitle()"
+    [tooltipText]="tooltipText()"
+    [tooltipIcon]="tooltipIcon()"
+    [tooltipPosition]="tooltipPosition()"
+    name="information-circle"
+    color="#54606f"
+    size="16"
+  />
+  }
+</div>

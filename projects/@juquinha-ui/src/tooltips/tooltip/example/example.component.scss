@@ -1,0 +1,16 @@
+.juquinha-tooltip-example {
+  display: flex;
+  gap: 16px;
+}
+
+.juquinha-tooltip-example__div {
+  width: 100%;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: var(--juquinha-primary-color);
+}
+
+.juquinha-tooltip-example__text {
+  color: var(--juquinha-neutral-color-0);
+  text-align: center;
+}

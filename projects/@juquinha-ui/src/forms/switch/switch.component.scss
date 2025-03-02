@@ -1,0 +1,78 @@
+:host {
+  display: block;
+}
+
+.juquinha-switch__field {
+  display: flex;
+  gap: var(--juquinha-checkbox-field-container-gap);
+  align-items: var(--juquinha-checkbox-field-container-align);
+}
+
+.field__box {
+  width: var(--juquinha-switch-button-width);
+  height: var(--juquinha-switch-button-height);
+  display: flex;
+  align-items: center;
+  border-radius: var(--juquinha-switch-button-border-radius);
+  background-color: var(--juquinha-switch-button-background-color);
+  border: var(--juquinha-switch-button-border);
+  cursor: pointer;
+  transition: var(--juquinha-transition-delay);
+  position: relative;
+  margin-bottom: 8px;
+  outline: none;
+
+  &:hover {
+    border: var(--juquinha-switch-button-border-hover);
+  }
+
+  &:focus {
+    box-shadow: var(--juquinha-field-box-shadow-focus);
+  }
+
+  &.field--disabled {
+    cursor: default;
+    opacity: var(--juquinha-switch-disabled-opacity);
+    pointer-events: none;
+    cursor: default;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &.box--active {
+    background-color: var(--juquinha-switch-button-background-color-active);
+
+    .box__circle {
+      background-color: var(
+        --juquinha-switch-button-circle-background-color-active
+      );
+      margin: var(--juquinha-switch-button-circle-margin-y)
+        var(--juquinha-switch-button-circle-margin-x) 0
+        calc(
+          100% - var(--juquinha-switch-button-circle-width) -
+            var(--juquinha-switch-button-circle-margin-x)
+        );
+    }
+  }
+}
+
+.box__circle {
+  width: var(--juquinha-switch-button-circle-width);
+  height: var(--juquinha-switch-button-circle-height);
+  border-radius: var(--juquinha-switch-button-circle-border-radius);
+  display: block;
+  position: relative;
+  background-color: var(--juquinha-switch-button-circle-background-color);
+  margin: var(--juquinha-switch-button-circle-margin-y)
+    var(--juquinha-switch-button-circle-margin-x);
+  z-index: 1;
+  transition: var(--juquinha-transition-delay);
+}
+
+::ng-deep {
+  .label__text {
+    font-weight: normal;
+  }
+}

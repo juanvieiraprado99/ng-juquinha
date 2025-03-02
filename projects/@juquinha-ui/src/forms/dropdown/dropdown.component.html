@@ -1,0 +1,70 @@
+<juquinha-field-container
+  [iconLeft]="iconLeft()"
+  [disabled]="disabled()"
+  [iconRight]="iconRight()"
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hintText]="hintText()"
+  [fieldId]="id()"
+  [active]="focused() || getControlValue() !== ''"
+  [mode]="config.fieldMode ?? 'static'"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+>
+  <button
+    [id]="id()"
+    class="field"
+    type="button"
+    [disabled]="disabled() || loading()"
+    [tabIndex]="disabled() || loading() ? -1 : 1"
+    (focus)="onHandleFocus()"
+    [ngClass]="getDefaultStylesClass()"
+    (click)="switchDropdownOpenedState()"
+    #dropdownButton
+  >
+    <span class="field__value">
+      {{ getControlValue() }}
+    </span>
+  </button>
+
+  <div
+    class="juquinha-dropdown__arrow"
+    [ngClass]="{ 'arrow--active': dropdownOpened() }"
+  >
+    <juquinha-icon
+      name="arrow-down"
+      size="20"
+      color="var(--juquinha-neutral-color-700)"
+    />
+  </div>
+
+  @if (loading()) {
+  <div class="juquinha-dropdown__loader">
+    <juquinha-icon
+      name="loader"
+      [rotate]="true"
+      size="16"
+      color="var(--juquinha-neutral-color-700)"
+    />
+  </div>
+  } @if (showClear() && (value != undefined && value != null && value !== '' &&
+  value.length > 0)) {
+  <button
+    class="juquinha-dropdown__clear-btn"
+    type="button"
+    (click)="handleClickClear()"
+  >
+    <juquinha-icon
+      name="close"
+      size="16"
+      color="var(--juquinha-neutral-color-700)"
+    />
+  </button>
+  } @if (showErrorMessage()) {
+  <div class="field-error">
+    <small class="field-error__text">{{ getErrorMessage() }}</small>
+  </div>
+  }
+</juquinha-field-container>

@@ -1,0 +1,59 @@
+<button
+  class="juquinha-paginator__btn"
+  type="button"
+  (click)="handlePageSelect(1)"
+  [disabled]="page() === 1"
+>
+  <juquinha-icon name="arrow-double-past" />
+</button>
+
+<button
+  class="juquinha-paginator__btn"
+  type="button"
+  (click)="handlePageSelect(page() - 1)"
+  [disabled]="page() === 1"
+>
+  <juquinha-icon name="arrow-past" />
+</button>
+
+<div class="juquinha-paginator__pages">
+  @for (renderPage of renderPages(); track $index) {
+  <button
+    class="pages__page"
+    type="button"
+    [ngClass]="{ 'page--active': renderPage === page() }"
+    (click)="handlePageSelect(renderPage)"
+    [disabled]="page() === renderPage"
+  >
+    {{ renderPage }}
+  </button>
+  } @if (page() < totalPages() - showPages() + 3) {
+  <p class="pages__apge">...</p>
+
+  <button
+    class="pages__page"
+    type="button"
+    (click)="handlePageSelect(totalPages())"
+  >
+    {{ totalPages() }}
+  </button>
+  }
+</div>
+
+<button
+  class="juquinha-paginator__btn"
+  type="button"
+  (click)="handlePageSelect(page() + 1)"
+  [disabled]="page() === totalPages()"
+>
+  <juquinha-icon name="arrow-next" />
+</button>
+
+<button
+  class="juquinha-paginator__btn"
+  type="button"
+  (click)="handlePageSelect(totalPages())"
+  [disabled]="page() === totalPages()"
+>
+  <juquinha-icon name="arrow-double-next" />
+</button>

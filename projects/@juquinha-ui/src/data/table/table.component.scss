@@ -1,0 +1,47 @@
+::ng-deep {
+  .juquinha-table {
+    width: 100%;
+
+    &.juquinha-table--clickable {
+      tbody {
+        tr {
+          transition: var(--juquinha-transition-delay);
+          cursor: pointer;
+
+          &:hover {
+            background-color: var(--juquinha-primary-color-light);
+          }
+        }
+      }
+    }
+  }
+
+  thead {
+    tr {
+      border-bottom: 1px solid var(--juquinha-neutral-color-300);
+
+      th {
+        .juquinha-table__header {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        text-wrap: nowrap;
+        padding: 20px;
+        text-align: left;
+        font-weight: normal;
+        color: var(--juquinha-neutral-color-700);
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid var(--juquinha-neutral-color-200);
+
+      td {
+        padding: 20px;
+      }
+    }
+  }
+}

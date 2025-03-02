@@ -1,0 +1,25 @@
+/*
+* Shapes, sizes and colors of panels components.
+* @group Styles
+*/
+:root {
+  --juquinha-accordion-border: none;
+  --juquinha-accordion-border-radius: 8px;
+
+  --juquinha-accordion-header-background: var(--juquinha-green-100);
+  --juquinha-accordion-header-background-hover: var(--juquinha-green-200);
+  --juquinha-accordion-header-text-color: var(--juquinha-primary-color);
+  --juquinha-accordion-header-title-weight: 600;
+  --juquinha-accordion-header-icon-color: var(--juquinha-primary-color);
+  --juquinha-accordion-header-padding-small: 10px 10px;
+  --juquinha-accordion-header-padding-medium: 12px 16px;
+  --juquinha-accordion-header-padding-large: 20px 24px;
+  --juquinha-accordion-header-border-radius: 8px;
+  --juquinha-accordion-header-border-radius-active: 8px 8px 0 0;
+
+  --juquinha-accordion-body-background: var(--juquinha-green-100);
+  --juquinha-accordion-body-padding-small: 10px;
+  --juquinha-accordion-body-padding-medium: 16px;
+  --juquinha-accordion-body-padding-large: 24px;
+  --juquinha-accordion-body-border-radius: 0 0 8px 8px;
+}

@@ -1,0 +1,29 @@
+/*
+* Shapes, sizes and colors of notifications components.
+* @group Styles
+*/
+:root {
+  --juquinha-toast-padding: 12px;
+  --juquinha-toast-border-radius: 12px;
+  --juquinha-toast-border: 1px solid var(--juquinha-neutral-color-400);
+
+  --juquinha-toast-default-text-color: var(--juquinha-neutral-color-0);
+  --juquinha-toast-success-text-color: var(--juquinha-neutral-color-0);
+  --juquinha-toast-error-text-color: var(--juquinha-neutral-color-0);
+  --juquinha-toast-warn-text-color: var(--juquinha-neutral-color-1100);
+  --juquinha-toast-info-text-color: var(--juquinha-neutral-color-0);
+  --juquinha-toast-laoding-text-color: var(--juquinha-neutral-color-1100);
+
+  --juquinha-toast-default-backgroud-color: var(--juquinha-neutral-color-1100);
+  --juquinha-toast-success-backgroud-color: var(--juquinha-success-color);
+  --juquinha-toast-error-backgroud-color: var(--juquinha-error-color);
+  --juquinha-toast-warn-backgroud-color: var(--juquinha-warn-color);
+  --juquinha-toast-info-backgroud-color: var(--juquinha-info-color);
+  --juquinha-toast-loading-background-color: var(--juquinha-loading-color);
+  --juquinha-toast-default-icon-color: var(--juquinha-neutral-color-0);
+  --juquinha-toast-success-icon-color: var(--juquinha-neutral-color-1100);
+  --juquinha-toast-error-icon-color: var(--juquinha-neutral-color-1100);
+  --juquinha-toast-warn-icon-color: var(--juquinha-neutral-color-1100);
+  --juquinha-toast-info-icon-color: var(--juquinha-neutral-color-1100);
+  --juquinha-toast-loading-icon-color: var(--juquinha-neutral-color-1100);
+}

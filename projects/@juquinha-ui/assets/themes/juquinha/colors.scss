@@ -1,0 +1,9 @@
+@import "../colors/green.scss";
+
+:root {
+  --juquinha-primary-color: var(--juquinha-green-700);
+  --juquinha-primary-color-hover: var(--juquinha-green-800);
+  --juquinha-primary-color-focus: var(--juquinha-green-300);
+  --juquinha-primary-color-light: var(--juquinha-green-100);
+  --juquinha-primary-color-light-hover: var(--juquinha-green-200);
+}

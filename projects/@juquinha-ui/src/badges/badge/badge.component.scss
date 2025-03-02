@@ -1,0 +1,15 @@
+.juquinha-badge {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding: var(--juquinha-badge-padding);
+  border-radius: var(--juquinha-badge-border-radius);
+  gap: var(--juquinha-badge-gap);
+}
+
+.juquinha-badge__remove-btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

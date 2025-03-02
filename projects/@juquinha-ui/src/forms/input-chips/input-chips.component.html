@@ -1,0 +1,51 @@
+<juquinha-field-container
+  [iconLeft]="iconLeft()"
+  [iconRight]="iconRight()"
+  [disabled]="disabled()"
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hintText]="hintText()"
+  [fieldId]="id()"
+  [active]="focused() || word() !== ''"
+  [mode]="config.fieldMode ?? 'static'"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+>
+  <input
+    class="field"
+    [id]="id()"
+    [type]="type()"
+    [placeholder]="
+      config.fieldMode === 'static' || focused() ? placeholder() : ''
+    "
+    [tabIndex]="disabled() ? -1 : 1"
+    [disabled]="disabled()"
+    [mask]="mask()"
+    (blur)="handleBlur()"
+    (focus)="onHandleFocus()"
+    (keydown)="preventSubmit($event)"
+    (keyup)="handleKeyPressed($event)"
+    [autocomplete]="autocomplete()"
+    [ngClass]="getDefaultStylesClass()"
+    [(ngModel)]="word"
+  />
+
+  @if (value && value.length > 0) {
+  <div class="juquinha-chips-container">
+    @for (chip of value; track chip; let i = $index) {
+    <juquinha-badge
+      [label]="mask() ? (chip | mask : mask() ?? '') : chip"
+      [removable]="!disabled()"
+      (onClickRemove)="handleClickRemove(i)"
+      [ngClass]="{ highlighted: isChipHighlighted(chip) }"
+    />
+    }
+  </div>
+  } @if (showErrorMessage()) {
+  <div class="field-error">
+    <small class="field-error__text">{{ getErrorMessage() }}</small>
+  </div>
+  }
+</juquinha-field-container>

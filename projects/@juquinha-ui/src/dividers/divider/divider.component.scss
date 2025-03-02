@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  align-items: center;
+
+  &.style--solid {
+    .juquinha-divider__line {
+      border-bottom: 1px solid var(--juquinha-divider-line-color);
+    }
+  }
+
+  &.style--dashed {
+    .juquinha-divider__line {
+      border-bottom: 1px dashed var(--juquinha-divider-line-color);
+    }
+  }
+}
+
+.juquinha-divider__line {
+  width: 100%;
+}
+
+.content__text,
+.content__icon {
+  text-wrap: nowrap;
+  margin: 0 var(--juquinha-divider-gap);
+  color: var(--juquinha-divider-text-color);
+}

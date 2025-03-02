@@ -1,0 +1,12 @@
+@if (iconHTML()) {
+<div
+  class="icon"
+  [ngStyle]="{
+      width: size() + 'px',
+      height: size() + 'px',
+      'animation-duration': rotateSpeed(),
+    }"
+  [innerHTML]="iconHTML()"
+  [ngClass]="{ rotate: rotate() }"
+></div>
+}

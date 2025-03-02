@@ -1,0 +1,76 @@
+<div
+  class="options"
+  #optionsContainer
+  [ngStyle]="{ top: top + 'px', left: left + 'px' }"
+>
+  @if (search) {
+  <div class="search" #search>
+    <juquinha-input
+      [label]="searchLabel"
+      [ngStyle]="{ width: width + 'px' }"
+      [(ngModel)]="filteredText"
+      iconLeft="search"
+      (ngModelChange)="handleFilteredItems()"
+    />
+  </div>
+  } @if (showSelectAll && multiple) {
+  <div #selectAllContainer>
+    <juquinha-checkbox
+      label="Selecionar todos"
+      [(ngModel)]="selectAll"
+      (ngModelChange)="handleToggleSelectAll()"
+    />
+  </div>
+  }
+  <div
+    #optionsScroller
+    class="options__scroller"
+    [ngStyle]="{ height: containerHeight + 'px', overflow: 'auto' }"
+  >
+    <div class="options__items" [ngStyle]="{ width: width + 'px' }">
+      @for (item of visibleItems(); track $index) {
+      <div
+        class="items__item"
+        (click)="selectItem(item)"
+        [ngClass]="{
+          'item--without-border': $index === visibleItems().length - 1,
+          'item--active': getItemIndex($index) === selectedIndex,
+        }"
+      >
+        @if (item["icon"]) {
+        <div class="item__icon">
+          <juquinha-icon [name]="item['icon']" size="20" />
+        </div>
+        }
+
+        <p>{{ item[labelKey] }}</p>
+
+        @if (!multiple && item[valueKey] === value) {
+        <div class="item__selected-icon">
+          <juquinha-icon
+            name="check"
+            size="14"
+            color="var(--juquinha-success-color)"
+          />
+        </div>
+        } @if (multiple) {
+        <div
+          class="item__checkbox"
+          [ngClass]="{
+              'checkbox--active': value.includes(item[valueKey]),
+            }"
+        >
+          <juquinha-icon
+            name="check"
+            size="12"
+            color="var(--juquinha-neutral-color-0)"
+          />
+        </div>
+        }
+      </div>
+      } @empty {
+      <p class="items__empty">{{ emptyMessage }}</p>
+      }
+    </div>
+  </div>
+</div>

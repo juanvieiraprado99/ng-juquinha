@@ -1,0 +1,63 @@
+@import "./components/components.scss";
+
+@import "./colors.scss";
+@import "./spacing.scss";
+@import "./shapes.scss";
+@import "./tipography.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+* Default transition delay times.
+* @group Styles
+*/
+:root {
+  --juquinha-transition-delay: 0.3s;
+  --juquinha-transition-delay-fast: 0.15s;
+  --juquinha-transition-delay-slow: 0.5s;
+}

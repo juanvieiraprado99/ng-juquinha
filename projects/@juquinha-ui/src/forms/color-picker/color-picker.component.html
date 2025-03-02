@@ -1,0 +1,33 @@
+<juquinha-field-container
+  [disabled]="disabled()"
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hintText]="hintText()"
+  [fieldId]="id()"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+>
+  <div class="field--picker">
+    <input
+      class="field field--color"
+      [id]="id()"
+      type="color"
+      [value]="value"
+      (input)="onColorChange($event)"
+      (change)="onColorChange($event)"
+      [disabled]="disabled()"
+      [ngClass]="getDefaultStylesClass()"
+    />
+    <p class="color--value" (click)="copyToClipboard(value)">
+      {{ copyText() == "" ? value : copyText() }}
+    </p>
+  </div>
+
+  @if (showErrorMessage()) {
+  <div class="field-error">
+    <small class="field-error__text">{{ getErrorMessage() }}</small>
+  </div>
+  }
+</juquinha-field-container>

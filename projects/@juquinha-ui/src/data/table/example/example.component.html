@@ -1,0 +1,21 @@
+<juquinha-table [clickable]="clickable" [headers]="headers">
+  <tbody>
+    @for (object of objectList; track $index) {
+    <tr>
+      <td>{{ object.value }}</td>
+      <td>{{ object.object?.value | date : "dd/MM/yyyy" }}</td>
+      <td>{{ object.object?.object?.value }}</td>
+      <td>
+        <button class="example-btn" type="button">
+          <juquinha-icon
+            name="information-circle"
+            width="16"
+            height="16"
+            color="var(--juquinha-neutral-color-800)"
+          />
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</juquinha-table>

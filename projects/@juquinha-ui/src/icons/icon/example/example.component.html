@@ -1,0 +1,22 @@
+<div class="example-summary">
+  <juquinha-button
+    [label]="'Tema atual: ' + (config().iconTheme | uppercase)"
+    (onClick)="handleSwitchIconTheme()"
+    variant="secondary"
+  />
+</div>
+
+<div class="icon-example">
+  @for (icon of icons(); track $index) {
+  <div class="icon-example__icon">
+    <juquinha-icon
+      [name]="icon.identifier"
+      [size]="size"
+      [color]="color"
+      [rotate]="rotate || icon.identifier === 'loader'"
+      [rotateSpeed]="rotateSpeed"
+    />
+    <p class="icon__name">{{ icon.identifier }}</p>
+  </div>
+  }
+</div>

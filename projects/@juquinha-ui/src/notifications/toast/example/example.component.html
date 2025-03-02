@@ -1,0 +1,31 @@
+<div class="juquinha-toast-example">
+  <juquinha-toast />
+
+  <div class="buttons">
+    <juquinha-button
+      iconLeft="bell"
+      label="Disparar notificações"
+      (onClick)="handleClickNotifications()"
+    ></juquinha-button>
+    <juquinha-button
+      iconLeft="select-box"
+      label="Limpar notificações"
+      (onClick)="handleClearNotifications()"
+    ></juquinha-button>
+  </div>
+
+  <div class="toast_buttons">
+    @for (severity of severityLevels; track $index) {
+    <juquinha-button
+      label="{{ severity | titlecase }}"
+      (onClick)="handleClick(severity)"
+      variant="secondary"
+    ></juquinha-button>
+    }
+    <juquinha-button
+      label="Concluir - Toast"
+      (onClick)="handleConcludeToast()"
+      variant="secondary"
+    ></juquinha-button>
+  </div>
+</div>

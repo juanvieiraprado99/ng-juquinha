@@ -1,0 +1,10 @@
+/*
+* Shapes, sizes and colors of loaders components.
+* @group Styles
+*/
+:root {
+  --juquinha-skeleton-background: var(--juquinha-neutral-color-600);
+  --juquinha-skeleton-loading-animation-color: var(
+    --juquinha-neutral-color-200
+  );
+}

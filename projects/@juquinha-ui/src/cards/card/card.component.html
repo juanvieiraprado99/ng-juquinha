@@ -1,0 +1,46 @@
+<ng-content select=".juquinha-card__header" />
+
+@if (imageSrc()) {
+<img class="juquinha-card__image" [src]="imageSrc()" [alt]="imageAlt()" />
+} @if (icon()) {
+<div class="juquinha-card__icon">
+  <juquinha-icon [name]="icon()" [size]="iconSize()" [color]="iconColor()" />
+</div>
+} @if (badgeLabel()) {
+<div class="juquinha-card__badge">
+  <juquinha-badge
+    [label]="badgeLabel()"
+    [textColor]="badgeTextColor()"
+    [color]="badgeColor()"
+    [icon]="badgeIcon()"
+    [iconSize]="badgeIconSize()"
+  />
+</div>
+} @if (title() || subtitle()) {
+<div
+  class="juquinha-card__summary"
+  [ngClass]="{ 'mb-2': content() !== '' && (title() || subtitle()) }"
+>
+  <p class="summary__title text-bold font-large">
+    {{ title() }}
+  </p>
+  <p class="summary__subtitle font-x-small">
+    {{ subtitle() }}
+  </p>
+</div>
+}
+
+<ng-content select=".juquinha-card__body" />
+
+@if (content()) {
+<small
+  class="juquinha-card__content"
+  [ngStyle]="{ '-webkit-line-clamp': totalLines() }"
+>
+  {{ content() }}
+</small>
+}
+
+<ng-content />
+
+<ng-content select=".juquinha-card__footer" />

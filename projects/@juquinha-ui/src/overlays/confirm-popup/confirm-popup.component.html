@@ -1,0 +1,40 @@
+<div
+  class="confirm-popup"
+  [id]="id"
+  [ngStyle]="{ top: position?.top + 'px', left: position?.left + 'px' }"
+  [hidden]="!confirm || !position"
+>
+  <div class="confirm-popup__content mb-2">
+    @if (confirm?.icon !== "") {
+    <juquinha-icon
+      [name]="confirm?.icon ?? 'warning-triangle'"
+      width="20"
+      height="20"
+    />
+    }
+    <small class="content__message">{{ confirm?.message }}</small>
+  </div>
+
+  <div class="confirm-popup__options">
+    <button class="options__button" type="button" (click)="handleClickAccept()">
+      <juquinha-icon
+        [name]="confirm?.acceptIcon ?? 'check'"
+        color="white"
+        size="14"
+      />
+      {{ confirm?.acceptLabel ?? "Confirmar" }}
+    </button>
+    <button
+      class="options__button variant-tertiary"
+      type="button"
+      (click)="handleClickReject()"
+    >
+      <juquinha-icon
+        [name]="confirm?.rejectIcon ?? 'close'"
+        size="14"
+        color="var(--juquinha-primary-color)"
+      />
+      {{ confirm?.rejectLabel ?? "Cancelar" }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  height: 75px;
+}
+
+.field {
+  width: 100% !important;
+  min-height: var(--juquinha-field-min-height);
+  text-align: left;
+}
+
+.field__value {
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding-right: 48px;
+}
+
+.juquinha-dropdown__arrow {
+  float: right;
+  margin-right: 16px;
+  position: relative;
+  z-index: 1;
+  top: -40px;
+  transition: var(--juquinha-transition-delay-slow);
+  pointer-events: none;
+
+  &.arrow--active {
+    transform: rotateZ(-180deg);
+  }
+}
+
+.juquinha-dropdown__clear-btn {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  float: right;
+  margin: 0 8px 0 0;
+  position: relative;
+  z-index: 1;
+  top: -38px;
+  cursor: pointer;
+}
+
+.juquinha-dropdown__loader {
+  float: right;
+  position: relative;
+  margin: 0 8px 0 0;
+  z-index: 1;
+  top: -38px;
+}

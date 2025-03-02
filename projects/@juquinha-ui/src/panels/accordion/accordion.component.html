@@ -1,0 +1,40 @@
+<div
+  class="juquinha-accordion"
+  [ngClass]="{ 'juquinha-accordion--active': bodyActive() }"
+>
+  <div
+    class="juquinha-accordion__header"
+    (click)="switchActive()"
+    [ngClass]="accordionClasses()"
+    [ngStyle]="{ 'background-color': styles().header.backgroundColor }"
+  >
+    @if (icon()) {
+    <juquinha-icon
+      [name]="icon()"
+      [size]="iconSize()"
+      [color]="styles().header.iconColor"
+    />
+    }
+    <p class="header__title" [ngStyle]="{ color: styles().header.textColor }">
+      {{ title() }}
+    </p>
+    <div
+      class="header__expand-collapse-btn"
+      [ngClass]="{ 'btn--active': bodyActive() }"
+    >
+      <juquinha-icon
+        name="add"
+        [size]="iconSize()"
+        [color]="styles().header.iconColor"
+      />
+    </div>
+  </div>
+
+  <div
+    class="juquinha-accordion__body"
+    [ngClass]="accordionClasses()"
+    [ngStyle]="{ 'background-color': styles().body.backgroundColor }"
+  >
+    <ng-content />
+  </div>
+</div>

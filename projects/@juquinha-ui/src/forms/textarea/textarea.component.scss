@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.field {
+  min-height: 100px;
+  max-height: 300px;
+  resize: vertical;
+}
+
+.max-length {
+  width: fit-content;
+  right: 16px;
+  float: right;
+  display: block;
+  margin: var(--juquinha-field-counter-margin);
+  font-size: var(--juquinha-field-counter-font-size);
+  color: var(--juquinha-field-counter-color);
+}

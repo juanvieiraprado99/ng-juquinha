@@ -1,0 +1,46 @@
+<div class="checkbox__container">
+  <input type="checkbox" [id]="id()" hidden />
+
+  <button
+    class="container__checkbox"
+    [ngClass]="{ 'checkbox--active': value }"
+    type="button"
+    [tabIndex]="disabled() ? -1 : 1"
+    (click)="switchValue()"
+    [disabled]="disabled()"
+    [ariaLabel]="label()"
+  >
+    @if (value) {
+    <juquinha-icon
+      name="check"
+      size="12"
+      color="var(--juquinha-neutral-color-0)"
+    />
+    }
+  </button>
+
+  <ng-content></ng-content>
+
+  @if (label() || subLabel()) {
+  <div class="container__label" (click)="switchValue()">
+    <juquinha-label
+      [label]="label()"
+      [subLabel]="subLabel()"
+      [bold]="false"
+      [forId]="id()"
+      [tooltipTitle]="tooltipTitle()"
+      [tooltipText]="tooltipText()"
+      [tooltipIcon]="tooltipIcon()"
+      [tooltipPosition]="tooltipPosition()"
+    />
+  </div>
+  }
+</div>
+
+@if (hintText()) {
+<juquinha-hint-text [hintText]="hintText()" />
+} @if (showErrorMessage()) {
+<div class="field-error">
+  <small class="field-error__text">{{ getErrorMessage() }}</small>
+</div>
+}

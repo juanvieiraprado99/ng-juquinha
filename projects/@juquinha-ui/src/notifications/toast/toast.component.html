@@ -1,0 +1,10 @@
+@if (messages().length > 0) { @for (message of messages(); track message.id; let
+i = $index) {
+<div class="juquinha-toast__toast-card" [@fadeInOut]>
+  <juquinha-card
+    [message]="message"
+    (onClick)="handleClick($event)"
+    (onClose)="handleRemove($event)"
+  />
+</div>
+} }

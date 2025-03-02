@@ -1,0 +1,22 @@
+/*
+* Shapes, sizes and colors of cards components.
+* @group Styles
+*/
+:root {
+  --juquinha-card-background-color: var(--juquinha-neutral-color-0);
+  --juquinha-card-padding: 12px;
+  --juquinha-card-border-radius: 16px;
+  --juquinha-card-box-shadow: 0px 4px 20px 0px #0000000d;
+
+  --juquinha-card-image-border-radius: 8px;
+
+  --juquinha-card-image-margin-bottom: 18px;
+  --juquinha-card-icon-margin-bottom: 18px;
+  --juquinha-card-badge-margin-bottom: 18px;
+
+  --juquinha-card-border: none;
+
+  --juquinha-card-title-color: var(--juquinha-neutral-color-1100);
+  --juquinha-card-subtitle-color: var(--juquinha-neutral-color-700);
+  --juquinha-card-content-color: var(--juquinha-neutral-color-700);
+}

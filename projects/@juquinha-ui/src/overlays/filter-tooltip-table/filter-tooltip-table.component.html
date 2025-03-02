@@ -1,0 +1,26 @@
+<div
+  class="juquinha-tooltip__filter"
+  [formGroup]="form"
+  [ngClass]="{ show: visible(), last: last() }"
+>
+  @for (filter of headers()?.filter; track filter; let i = $index) { @switch
+  (filter.inputMode) { @case ("input") {
+  <juquinha-input
+    [formControlName]="'control' + i"
+    [placeholder]="filter.placeholder ?? ''"
+    [label]="filter.label ?? ''"
+    (onBlur)="onEmit('control' + i)"
+  ></juquinha-input>
+  } @case ("dropdown") {
+  <juquinha-dropdown
+    [formControlName]="'control' + i"
+    [valueKey]="filter.valueKey ?? 'value'"
+    [labelKey]="filter.labelKey ?? 'label'"
+    [multiple]="filter.multiSelect ?? false"
+    [options]="filter.items"
+    [placeholder]="filter.placeholder ?? ''"
+    [label]="filter.label ?? ''"
+    (onSelect)="onEmit('control' + i)"
+  ></juquinha-dropdown>
+  } } }
+</div>

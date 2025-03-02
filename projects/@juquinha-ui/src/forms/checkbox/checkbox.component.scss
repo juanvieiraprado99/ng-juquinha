@@ -1,0 +1,43 @@
+:host {
+  display: block;
+}
+
+.checkbox__container {
+  display: flex;
+  gap: 8px;
+  margin: var(--juquinha-field-margin);
+  accent-color: var(--juquinha-primary-color);
+}
+
+.container__label {
+  margin-top: 3px;
+}
+
+.container__checkbox {
+  width: var(--juquinha-checkbox-width);
+  height: var(--juquinha-checkbox-height);
+  border-radius: var(--juquinha-checkbox-border-radius);
+  border: var(--juquinha-checkbox-border);
+  background-color: var(--juquinha-checkbox-background-color);
+  transition: var(--juquinha-transition-delay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+
+  &.checkbox--active {
+    background-color: var(--juquinha-checkbox-background-color-active);
+    border: var(--juquinha-checkbox-border-active);
+  }
+
+  &:focus {
+    box-shadow: var(--juquinha-field-box-shadow-focus);
+  }
+
+  &:disabled {
+    border: var(--juquinha-checkbox-border-disabled);
+    pointer-events: none;
+    background-color: var(--juquinha-checkbox-background-color-disabled);
+  }
+}

@@ -1,0 +1,102 @@
+.juquinha-accordion {
+  border: var(--juquinha-accordion-border);
+  border-radius: var(--juquinha-accordion-border-radius);
+}
+
+.juquinha-accordion__header {
+  border-radius: var(--juquinha-accordion-header-border-radius);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--juquinha-transition-delay);
+
+  &:hover {
+    background-color: var(
+      --juquinha-component-accordion-header-hover-background-color
+    ) !important;
+  }
+
+  &.accordion--size- {
+    &small {
+      padding: var(--juquinha-accordion-header-padding-small);
+      .header__title {
+        font-weight: var(--juquinha-accordion-header-title-weight);
+      }
+    }
+    &medium {
+      padding: var(--juquinha-accordion-header-padding-medium);
+      .header__title {
+        font-size: 18px;
+        font-weight: var(--juquinha-accordion-header-title-weight);
+      }
+    }
+    &large {
+      padding: var(--juquinha-accordion-header-padding-large);
+      .header__title {
+        font-size: 22px;
+        font-weight: var(--juquinha-accordion-header-title-weight);
+      }
+    }
+  }
+}
+
+.header__expand-collapse-btn {
+  margin-left: auto;
+  transition: 0.5s;
+}
+
+.juquinha-accordion__body {
+  transition: 0.35s;
+  overflow: hidden;
+  max-height: 0;
+  border-radius: var(--juquinha-accordion-body-border-radius);
+  padding: 0 1em;
+
+  * {
+    transition: opacity 1s;
+    opacity: 0;
+  }
+
+  &.accordion--size- {
+    &small {
+      padding: 0 var(--juquinha-accordion-body-padding-small);
+    }
+    &medium {
+      padding: 0 var(--juquinha-accordion-body-padding-medium);
+    }
+    &large {
+      padding: 0 var(--juquinha-accordion-body-padding-large);
+    }
+  }
+}
+
+.juquinha-accordion--active {
+  .juquinha-accordion__header {
+    border-radius: var(--juquinha-accordion-header-border-radius-active);
+  }
+
+  .header__expand-collapse-btn {
+    transform: rotateZ(45deg);
+  }
+
+  .juquinha-accordion__body {
+    max-height: fit-content;
+
+    * {
+      opacity: 1;
+    }
+
+    &.accordion--size- {
+      &small {
+        padding: var(--juquinha-accordion-body-padding-small);
+      }
+      &medium {
+        padding: var(--juquinha-accordion-body-padding-medium);
+      }
+      &large {
+        padding: var(--juquinha-accordion-body-padding-large);
+      }
+    }
+  }
+}

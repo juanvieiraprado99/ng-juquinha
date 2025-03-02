@@ -1,0 +1,22 @@
+/*
+* Shapes, sizes and colors of overlay components.
+* @group Styles
+*/
+:root {
+  // Modal
+  --juquinha-modal-min-width: 340px;
+
+  --juquinha-tooltip-filter-background-color: var(--juquinha-neutral-color-100);
+
+  /*
+  * Size xsmall
+  */
+  --juquinha-modal-background-color: var(--juquinha-neutral-color-0);
+  --juquinha-modal-border-radius: 8px;
+  --juquinha-modal-min-width: 340px;
+  --header__left-gap-xsmall: 5px;
+  --header__right-gap-xsmall: 5px;
+  --juquinha-modal__header-xsmall: 15px;
+  --juquinha-modal__body-xsmall: 16px 0 16px 0;
+  --juquinha-modal__footer-xsmall: 16px 0 0 0;
+}

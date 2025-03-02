@@ -1,0 +1,43 @@
+/*
+* Shapes, sizes and colors of button components.
+* @group Styles
+*/
+:root {
+  --juquinha-button-color: var(--juquinha-primary-color);
+  --juquinha-button-color-hover: var(--juquinha-primary-color-hover);
+  --juquinha-button-box-shadow-focus: 0 0 0 3px
+    var(--juquinha-primary-color-focus);
+  --juquinha-button-text-color: var(--juquinha-neutral-color-0);
+  --juquinha-button-text-color-in-light: var(--juquinha-primary-color);
+  --juquinha-button-gap: 12px;
+  --juquinha-button-font-weight: 600;
+  --juquinha-button-border-radius: 8px;
+  --juquinha-button-icon-color: var(--juquinha-neutral-color-0);
+  --juquinha-button-icon-color-in-light: var(--juquinha-primary-color);
+  --juquinha-button-disabled-background-color: var(
+    --juquinha-neutral-color-200
+  );
+  --juquinha-button-disabled-text-color: var(--juquinha-neutral-color-700);
+
+  --juquinha-button-small-font-size: 12px;
+  --juquinha-button-small-padding: 8px 12px;
+  --juquinha-button-medium-font-size: 14px;
+  --juquinha-button-medium-padding: 13px 16px;
+  --juquinha-button-large-font-size: 16px;
+  --juquinha-button-large-padding: 15px 17px;
+
+  --juquinha-button-error-text-color-in-light: var(--juquinha-error-color);
+  --juquinha-button-error-box-shadow-focus: 0 0 0 3px
+    var(--juquinha-error-color-focus);
+  --juquinha-button-error-icon-color-in-light: var(--juquinha-error-color);
+}
+
+.btn-clear {
+  width: fit-content;
+  height: fit-content;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}

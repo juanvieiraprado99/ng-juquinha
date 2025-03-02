@@ -1,0 +1,23 @@
+@for (item of breadcrumbItems(); track $index; let last = $last) {
+<a
+  class="link"
+  [ngClass]="{
+      'link--current': lastIsCurrent() && last,
+      'link--has-click': item.link,
+    }"
+  [attr.href]="item.link"
+  (click)="handleClickItem($event, item.link)"
+>
+  @if (item.icon) {
+  <juquinha-icon
+    size="18"
+    [name]="item.icon"
+    color="var(--juquinha-neutral-color-700)"
+  />
+  }
+  {{ item.name }}
+</a>
+
+@if (!last) {
+<juquinha-icon name="arrow-next" color="var(--juquinha-neutral-color-500)" />
+} }

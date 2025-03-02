@@ -1,0 +1,51 @@
+<h5 class="mb-2">Sizes</h5>
+
+<div class="modal__buttons mb-4">
+  @for (size of ["small", "medium", "large"]; track $index) {
+  <juquinha-button
+    (click)="handleShowModal('default', size, size)"
+    [label]="size"
+  />
+  }
+</div>
+
+<h5 class="mb-2">Modes</h5>
+
+<div class="modal__buttons">
+  @for ( mode of ["none", "default", "information", "check", "link",
+  "fullButton"]; track $index ) {
+  <juquinha-button (click)="handleShowModal(mode, mode)" [label]="mode" />
+  }
+</div>
+
+<juquinha-modal
+  [show]="showModal"
+  title="Título"
+  subtitle="Sub título"
+  [footerMode]="footerMode"
+  [footerText]="footerText"
+  (onCloseModal)="switchShowModal()"
+  (onClickCancel)="onCancel()"
+  (onClickConfirm)="onConfirm()"
+  [size]="size"
+  [showClose]="true"
+>
+  <div class="juquinha-modal__body">
+    <p class="mb-2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus aliquid
+      sint temporibus, dicta hic deserunt commodi doloremque, atque eum
+      voluptate beatae eaque! Illum delectus, voluptas nesciunt officiis in
+      tempora ab. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Incidunt, distinctio assumenda, magnam odio porro voluptas iure ipsam
+      voluptatum fuga nisi laboriosam perspiciatis eveniet, harum magni at odit
+      ut id amet.
+    </p>
+
+    <small>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et minima
+      numquam veritatis deserunt? Beatae repudiandae necessitatibus veritatis
+      delectus, quia, obcaecati in enim totam maxime temporibus natus quae et
+      ipsam iusto!
+    </small>
+  </div>
+</juquinha-modal>

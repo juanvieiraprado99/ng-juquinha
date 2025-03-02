@@ -1,0 +1,51 @@
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Publish
+    displayName: "Publish Stage"
+
+    jobs:
+      - job: execute_publish
+        displayName: "Publish Job"
+
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "20.x"
+            displayName: "Install node.js"
+
+          - task: NpmAuthenticate@0
+            inputs:
+              workingFile: ".npmrc"
+            displayName: "Authenticate to install dependencies"
+
+          - script: |
+              npm install
+            displayName: "npm install dependencies"
+
+          - script: |
+              npm install
+              npm run build
+            displayName: "npm install and build juquinha-ui"
+            workingDirectory: "$(Build.SourcesDirectory)/projects/@juquinha-ui"
+
+          - task: CopyFiles@2
+            displayName: Copy npmrc file
+            inputs:
+              sourceFolder: "$(Build.SourcesDirectory)"
+              Contents: ".npmrc"
+              TargetFolder: "$(Build.SourcesDirectory)/dist/@juquinha-ui"
+              cleanTargetFolder: false
+
+          - task: NpmAuthenticate@0
+            inputs:
+              workingFile: ".npmrc"
+            displayName: "Autheticate to publish"
+
+          - script: |
+              npm publish
+            displayName: "publish juquinha-ui"
+            workingDirectory: "$(Build.SourcesDirectory)/dist/@juquinha-ui"

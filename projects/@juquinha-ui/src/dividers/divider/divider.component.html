@@ -1,0 +1,19 @@
+<div
+  class="juquinha-divider__line"
+  [ngStyle]="{ 'border-color': lineColor() }"
+></div>
+
+@if (text()) {
+<p class="content__text" [ngStyle]="{ color: textColor() }">{{ text() }}</p>
+} @if (icon()) {
+<div class="content__icon">
+  <juquinha-icon [name]="icon()" [color]="iconColor()" size="16" />
+</div>
+}
+
+<ng-content />
+
+<div
+  class="juquinha-divider__line"
+  [ngStyle]="{ 'border-color': lineColor() }"
+></div>

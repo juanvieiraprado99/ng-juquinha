@@ -1,0 +1,21 @@
+<div
+  class="juquinha-tooltip"
+  [ngClass]="['tooltip--position-' + tooltipPosition]"
+  [ngStyle]="{ top: top + 'px', left: left + 'px' }"
+>
+  @if (icon) {
+  <juquinha-icon [name]="icon" width="16" height="16" color="#fff" />
+  }
+
+  <div class="juquinha-tooltip__content">
+    @if (tooltipTitle) {
+    <p class="content__title text-bold">
+      {{ tooltipTitle }}
+    </p>
+    } @if (tooltipText) {
+    <p class="content__text">
+      {{ tooltipText }}
+    </p>
+    }
+  </div>
+</div>

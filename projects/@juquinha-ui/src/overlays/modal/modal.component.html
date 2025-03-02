@@ -1,0 +1,120 @@
+@if (show()) {
+<div class="juquinha-backdrop" (click)="handleCloseModal()">
+  <div
+    class="juquinha-modal"
+    (click)="preventClose($event)"
+    [ngClass]="modalClass()"
+  >
+    <div class="juquinha-modal__header">
+      @if (showClose()) {
+      <button
+        class="btn-clear close-modal-btn close-modal-btn"
+        type="button"
+        aria-label="Fechar modal"
+        (click)="handleCloseModal()"
+      >
+        <juquinha-icon
+          name="close"
+          size="20px"
+          color="var(--juquinha-neutral-color-500)"
+        ></juquinha-icon>
+      </button>
+      }
+
+      <div class="header">
+        @if (headerIcon()) {
+        <div class="header__icon">
+          <juquinha-icon
+            [name]="headerIcon()"
+            [color]="headerIconColor()"
+            width="16"
+            height="16"
+          />
+        </div>
+        } @if (title() || subtitle()) {
+        <div class="header__titles">
+          @if (title()) {
+          <h2 class="header__title">
+            {{ title() }}
+          </h2>
+          } @if (subtitle()) {
+          <h2 class="header__title subtitle">{{ subtitle() }}</h2>
+          }
+        </div>
+        }
+      </div>
+    </div>
+
+    @if (showDivider()) {
+    <juquinha-divider />
+    }
+
+    <div class="juquinha-modal__body">
+      <ng-content select=".juquinha-modal__body" />
+    </div>
+
+    @if (footerMode() !== "none") { @if (showDivider()) {
+    <juquinha-divider />
+    }
+
+    <div
+      class="juquinha-modal__footer"
+      [ngClass]="{ default: footerMode() === 'default' }"
+    >
+      @if (footerMode() !== "default" && footerMode() !== "fullButton") {
+      <div class="juquinha-footer__left">
+        @if (footerMode() === "information") {
+        <juquinha-icon
+          class="footer-left__icon"
+          name="information-circle-filled"
+          width="12px"
+          height="12px"
+        ></juquinha-icon>
+
+        <p class="footer-left__text">{{ footerText() }}</p>
+        } @if (footerMode() === "check") {
+        <div class="checkbox__container">
+          <input
+            class="container__field"
+            type="checkbox"
+            [(ngModel)]="checkboxValue"
+          />
+
+          <ng-content select=".check-content"></ng-content>
+
+          <juquinha-label [label]="footerText()" [bold]="false" />
+        </div>
+        } @if (footerMode() === "link") {
+        <a [href]="footerLink()" class="footer-left__text">{{
+          footerText()
+        }}</a>
+        }
+      </div>
+      }
+      <div
+        class="juquinha-footer__right"
+        [ngClass]="{ fullWidth: footerMode() === 'fullButton' }"
+      >
+        @if (cancelButtonLabel()) {
+        <juquinha-button
+          [ngClass]="{ fullWidth: footerMode() === 'fullButton' }"
+          [fullWidth]="footerMode() === 'fullButton'"
+          (onClick)="handleCancelClick()"
+          [label]="cancelButtonLabel()"
+          variant="secondary"
+        ></juquinha-button>
+        } @if (confirmButtonLabel()) {
+        <juquinha-button
+          [ngClass]="{ fullWidth: footerMode() === 'fullButton' }"
+          [fullWidth]="footerMode() === 'fullButton'"
+          (onClick)="handleConfirmClick()"
+          [loading]="loading()"
+          [label]="confirmButtonLabel()"
+        ></juquinha-button>
+        }
+      </div>
+    </div>
+    }
+  </div>
+</div>
+}

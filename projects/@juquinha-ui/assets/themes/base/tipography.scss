@@ -1,0 +1,81 @@
+/*
+* Variables of Font styles and sizes.
+* @group Styles
+*/
+:root {
+  --juquinha-heading-1-font-size: 40px;
+  --juquinha-heading-2-font-size: 32px;
+  --juquinha-heading-3-font-size: 32px;
+  --juquinha-heading-4-font-size: 28px;
+  --juquinha-heading-5-font-size: 24px;
+  --juquinha-heading-6-font-size: 20px;
+
+  --juquinha-large-font-size: 16px;
+  --juquinha-medium-font-size: 16px;
+  --juquinha-small-font-size: 14px;
+  --juquinha-x-small-font-size: 12px;
+}
+
+/*
+* Tipography on HTML elements.
+* @group Styles
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: var(--juquinha-heading-1-font-size);
+}
+
+h2 {
+  font-size: var(--juquinha-heading-2-font-size);
+}
+
+h3 {
+  font-size: var(--juquinha-heading-3-font-size);
+}
+
+h4 {
+  font-size: var(--juquinha-heading-4-font-size);
+}
+
+h5 {
+  font-size: var(--juquinha-heading-5-font-size);
+}
+
+h6 {
+  font-size: var(--juquinha-heading-6-font-size);
+}
+
+a,
+button,
+input,
+p {
+  font-size: var(--juquinha-medium-font-size);
+}
+
+small {
+  font-size: var(--juquinha-small-font-size);
+}
+
+/*
+* Common classes to set sizes and weight.
+* @group Styles
+*/
+.font-x-small {
+  font-size: var(--juquinha-x-small-font-size);
+}
+
+.font-large {
+  font-size: var(--juquinha-large-font-size);
+}
+
+.text-bold {
+  font-weight: bold;
+}

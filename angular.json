@@ -1,0 +1,71 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@juquinha/ui": {
+      "projectType": "library",
+      "root": "projects/@juquinha-ui",
+      "sourceRoot": "projects/@juquinha-ui/src",
+      "prefix": "juquinha",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "changeDetection": "OnPush",
+          "standalone": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/@juquinha-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/@juquinha-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/@juquinha-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/@juquinha-ui/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/@juquinha-ui/.storybook",
+            "browserTarget": "@juquinha/ui:build",
+            "compodoc": false,
+            "port": 6006,
+            "styles": [
+              "projects/@juquinha-ui/assets/themes/juquinha/theme.scss"
+            ]
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/@juquinha-ui/.storybook",
+            "browserTarget": "@juquinha/ui:build",
+            "compodoc": false,
+            "styles": [
+              "projects/@juquinha-ui/assets/themes/juquinha/theme.scss"
+            ],
+            "outputDir": "storybook-static"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

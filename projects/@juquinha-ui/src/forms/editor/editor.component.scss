@@ -1,0 +1,76 @@
+:host {
+  display: block;
+}
+
+.juquinha-parent-editor {
+  width: 100%;
+  border-radius: 12px;
+  margin: 8px 0;
+}
+
+.juquinha-painel-editor {
+  display: flex;
+  gap: 28px;
+  border-radius: 12px 12px 0 0;
+  align-items: center;
+
+  .juquinha-container-all-action {
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 0 12px;
+  }
+
+  .juquinha-btn-color {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .juquinha-container-input-font-size {
+    display: flex;
+    padding: 3px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--border-primary, #d1d6dc);
+    background: var(--background-primary, #fff);
+
+    #inputFontSize {
+      border: none;
+      outline: none;
+      border-radius: 3px;
+      padding: 2px;
+      color: #3d3d3d;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  }
+}
+
+.juquinha-container-all-action-group {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.juquinha-editor__placeholder {
+  position: absolute;
+  margin: 16px 12px 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.field {
+  min-height: 88px;
+  max-height: 400px;
+  resize: vertical;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

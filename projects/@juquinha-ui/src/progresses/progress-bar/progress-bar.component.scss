@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+.juquinha-progress-bar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--juquinha-progress-bar-header-margin-bottom);
+}
+
+.header__value {
+  color: var(--juquinha-progress-bar-header-value-color);
+}
+
+.juquinha-progress-bar__bar {
+  width: 100%;
+  height: var(--juquinha-progress-bar-height);
+  border-radius: var(--juquinha-progress-bar-border-radius);
+
+  &::-webkit-progress-value {
+    background: var(--juquinha-progress-bar-value-color);
+    border-radius: var(--juquinha-progress-bar-border-radius);
+  }
+
+  &::-webkit-progress-bar {
+    border-radius: var(--juquinha-progress-bar-border-radius);
+    background: var(--juquinha-progress-bar-background-color);
+  }
+}

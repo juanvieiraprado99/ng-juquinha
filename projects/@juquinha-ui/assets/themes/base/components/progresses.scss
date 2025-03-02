@@ -1,0 +1,12 @@
+/*
+* Shapes, sizes and colors of progresses components.
+* @group Styles
+*/
+:root {
+  --juquinha-progress-bar-background-color: var(--juquinha-neutral-color-100);
+  --juquinha-progress-bar-value-color: var(--juquinha-primary-color);
+  --juquinha-progress-bar-height: 4px;
+  --juquinha-progress-bar-header-margin-bottom: 0px;
+  --juquinha-progress-bar-border-radius: 12px;
+  --juquinha-progress-bar-header-value-color: var(--juquinha-neutral-color-700);
+}

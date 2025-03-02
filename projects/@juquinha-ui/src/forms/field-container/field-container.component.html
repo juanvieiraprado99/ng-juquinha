@@ -1,0 +1,27 @@
+@if (label() || subLabel()) {
+<juquinha-label
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hasIconLeft]="iconLeft() !== undefined"
+  [forId]="fieldId()"
+  [active]="active()"
+  [mode]="mode()"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+/>
+} @if (iconLeft() || iconRight()) {
+<juquinha-icons
+  [iconLeft]="iconLeft()"
+  [iconRight]="iconRight()"
+  [disabled]="disabled()"
+  [mode]="mode()"
+/>
+}
+
+<ng-content />
+
+@if (hintText()) {
+<juquinha-hint-text [hintText]="hintText()" />
+}

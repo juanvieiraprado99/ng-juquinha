@@ -1,0 +1,84 @@
+/*
+* Semantic colors for success, error, warning, info and neutrals.
+* @group Styles
+*/
+:root {
+  --juquinha-semantic-color-info-100: #f3f6fe;
+  --juquinha-semantic-color-info-200: #dae5fc;
+  --juquinha-semantic-color-info-300: #adc8f9;
+  --juquinha-semantic-color-info-400: #70a6f6;
+  --juquinha-semantic-color-info-500: #3e92f4;
+  --juquinha-semantic-color-info-600: #2f6eb9;
+  --juquinha-semantic-color-info-700: #214e82;
+
+  --juquinha-semantic-color-error-100: #ffebe6;
+  --juquinha-semantic-color-error-200: #ffbdad;
+  --juquinha-semantic-color-error-300: #ff8f73;
+  --juquinha-semantic-color-error-400: #ff7452;
+  --juquinha-semantic-color-error-500: #ff5630;
+  --juquinha-semantic-color-error-600: #de350b;
+  --juquinha-semantic-color-error-700: #bf2600;
+
+  --juquinha-semantic-color-warn-100: #fffae6;
+  --juquinha-semantic-color-warn-200: #fff0b3;
+  --juquinha-semantic-color-warn-300: #ffe380;
+  --juquinha-semantic-color-warn-400: #ffc400;
+  --juquinha-semantic-color-warn-500: #ffab00;
+  --juquinha-semantic-color-warn-600: #ff991f;
+  --juquinha-semantic-color-warn-700: #ff8b00;
+
+  --juquinha-semantic-color-success-100: #e8f6ee;
+  --juquinha-semantic-color-success-200: #d1eedd;
+  --juquinha-semantic-color-success-300: #a3ddbc;
+  --juquinha-semantic-color-success-400: #5dc389;
+  --juquinha-semantic-color-success-500: #18a957;
+  --juquinha-semantic-color-success-600: #11763d;
+  --juquinha-semantic-color-success-700: #0a4423;
+
+  --juquinha-neutral-color-0: #ffffff;
+  --juquinha-neutral-color-100: #f4f5f6;
+  --juquinha-neutral-color-200: #e8ebee;
+  --juquinha-neutral-color-300: #dce1e5;
+  --juquinha-neutral-color-400: #d1d6dc;
+  --juquinha-neutral-color-500: #c5ccd4;
+  --juquinha-neutral-color-600: #bac2cb;
+  --juquinha-neutral-color-700: #95a1af;
+  --juquinha-neutral-color-800: #708193;
+  --juquinha-neutral-color-900: #54606f;
+  --juquinha-neutral-color-1000: #38404a;
+  --juquinha-neutral-color-1100: #000000;
+}
+
+/*
+* Default semantic colors.
+* @group Styles
+*/
+:root {
+  --juquinha-error-color: var(--juquinha-semantic-color-error-500);
+  --juquinha-error-color-hover: var(--juquinha-semantic-color-error-600);
+  --juquinha-error-color-focus: var(--juquinha-semantic-color-error-200);
+  --juquinha-error-color-light: var(--juquinha-semantic-color-error-100);
+  --juquinha-error-color-light-hover: var(--juquinha-semantic-color-error-200);
+
+  --juquinha-warn-color: var(--juquinha-semantic-color-warn-500);
+  --juquinha-warn-color-hover: var(--juquinha-semantic-color-warn-600);
+  --juquinha-warn-color-focus: var(--juquinha-semantic-color-warn-200);
+  --juquinha-warn-color-light: var(--juquinha-semantic-color-warn-100);
+  --juquinha-warn-color-light-hover: var(--juquinha-semantic-color-warn-200);
+
+  --juquinha-success-color: var(--juquinha-semantic-color-success-500);
+  --juquinha-success-color-hover: var(--juquinha-semantic-color-success-600);
+  --juquinha-success-color-focus: var(--juquinha-semantic-color-success-200);
+  --juquinha-success-color-light: var(--juquinha-semantic-color-success-100);
+  --juquinha-success-color-light-hover: var(
+    --juquinha-semantic-color-success-200
+  );
+
+  --juquinha-info-color: var(--juquinha-semantic-color-info-500);
+  --juquinha-info-color-hover: var(--juquinha-semantic-color-info-600);
+  --juquinha-info-color-focus: var(--juquinha-semantic-color-info-200);
+  --juquinha-info-color-light: var(--juquinha-semantic-color-info-100);
+  --juquinha-info-color-light-hover: var(--juquinha-semantic-color-info-200);
+
+  --juquinha-loading-color: var(--juquinha-neutral-color-100);
+}

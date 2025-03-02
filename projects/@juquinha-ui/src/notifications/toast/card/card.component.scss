@@ -1,0 +1,118 @@
+.juquinha-card {
+  max-width: 95%;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--juquinha-toast-padding);
+  border-radius: var(--juquinha-toast-border-radius);
+}
+
+.juquinha-card__message {
+  display: flex;
+  gap: 12px;
+}
+
+.content__title {
+  margin-bottom: 4px;
+}
+
+.content__link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.severity- {
+  &default {
+    background-color: var(--juquinha-toast-default-backgroud-color);
+
+    .content__title,
+    .content__detail,
+    .content__link {
+      color: var(--juquinha-toast-default-text-color);
+    }
+
+    ::ng-deep .message__icon .icon * {
+      fill: var(--juquinha-toast-default-icon-color);
+    }
+  }
+
+  &success {
+    background-color: var(--juquinha-toast-success-backgroud-color);
+
+    .content__title,
+    .content__detail,
+    .content__link {
+      color: var(--juquinha-toast-success-text-color);
+    }
+
+    ::ng-deep .message__icon .icon * {
+      fill: var(--juquinha-toast-success-icon-color);
+    }
+  }
+
+  &warn {
+    background-color: var(--juquinha-toast-warn-backgroud-color);
+
+    .content__title,
+    .content__detail,
+    .content__link {
+      color: var(--juquinha-toast-warn-text-color);
+    }
+
+    ::ng-deep .message__icon .icon * {
+      fill: var(--juquinha-toast-warn-icon-color);
+    }
+  }
+
+  &info {
+    background-color: var(--juquinha-toast-info-backgroud-color);
+
+    .content__title,
+    .content__detail,
+    .content__link {
+      color: var(--juquinha-toast-info-text-color);
+    }
+
+    ::ng-deep .message__icon .icon * {
+      fill: var(--juquinha-toast-info-icon-color);
+    }
+  }
+
+  &error {
+    background-color: var(--juquinha-toast-error-backgroud-color);
+
+    .content__title,
+    .content__detail,
+    .content__link {
+      color: var(--juquinha-toast-info-text-color);
+    }
+
+    ::ng-deep .message__icon .icon * {
+      fill: var(--juquinha-toast-error-icon-color);
+    }
+  }
+
+  &loading {
+    background-color: var(--juquinha-toast-loading-background-color);
+
+    .content__title,
+    .content__detail,
+    .content__link {
+      color: var(--juquinha-toast-laoding-text-color);
+    }
+
+    ::ng-deep .message__icon .icon {
+      * {
+        fill: var(--juquinha-toast-loading-icon-color);
+      }
+    }
+  }
+}
+
+.juquinha-card__close {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

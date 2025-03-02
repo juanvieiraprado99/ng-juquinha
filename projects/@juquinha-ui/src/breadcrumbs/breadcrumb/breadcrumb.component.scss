@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--juquinha-neutral-color-700);
+
+  &--current {
+    font-weight: bold;
+    color: var(--juquinha-neutral-color-900);
+  }
+
+  &--has-click {
+    cursor: pointer;
+
+    &:hover {
+      color: var(--juquinha-primary-color);
+
+      ::ng-deep .icon * {
+        fill: var(--juquinha-primary-color);
+        stroke: var(--juquinha-primary-color);
+      }
+    }
+  }
+}

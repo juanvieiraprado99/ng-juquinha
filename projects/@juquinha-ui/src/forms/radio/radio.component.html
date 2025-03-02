@@ -1,0 +1,54 @@
+<juquinha-field-container
+  [iconLeft]="iconLeft()"
+  [iconRight]="iconRight()"
+  [disabled]="disabled()"
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hintText]="hintText()"
+  [fieldId]="id()"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+>
+  <div class="juquinha-radio" [ngClass]="radioClass()">
+    <div
+      class="juquinha-radio__options"
+      [ngClass]="{ 'options--disabled': disabled() }"
+    >
+      @for (option of options(); let i = $index; track option) {
+      <div class="options__option" (click)="handleSetValue(option[valueKey()])">
+        <input
+          type="radio"
+          [id]="id() + option[valueKey()]"
+          [disabled]="disabled()"
+          [value]="option[valueKey()]"
+          hidden
+        />
+
+        <button
+          type="button"
+          class="option__field"
+          [ngClass]="{ 'field--active': value === option[valueKey()] }"
+          [disabled]="disabled()"
+          [tabIndex]="disabled() ? -1 : 1"
+        >
+          @if (value === option[valueKey()]) {
+          <div class="option__action"></div>
+          }
+        </button>
+
+        <label class="option__label" [for]="id() + option[valueKey()]">
+          {{ option[labelKey()] }}
+        </label>
+      </div>
+      }
+    </div>
+
+    @if (showErrorMessage()) {
+    <div class="field-error">
+      <small class="field-error__text">{{ getErrorMessage() }}</small>
+    </div>
+    }
+  </div>
+</juquinha-field-container>

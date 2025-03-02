@@ -1,0 +1,51 @@
+<table
+  class="juquinha-table"
+  [ngClass]="{ 'juquinha-table--clickable': clickable() }"
+>
+  <thead>
+    <tr>
+      @for (thead of headers(); track $index; let lastHeader = $last) { @if
+      (thead | isHeaderObject) {
+      <th>
+        <div class="juquinha-table__header">
+          {{ thead.label }}
+
+          @if (thead.filter) {
+          <juquinha-button
+            iconLeft="filter"
+            variant="secondary"
+            size="small"
+            (onClick)="openCloseModal($index)"
+          ></juquinha-button>
+
+          <juquinha-filter-tooltip-table
+            [last]="lastHeader"
+            [visible]="modalVisibility()[$index]"
+            [headers]="thead"
+            (valueEmitter)="filterValue(thead, $event)"
+          ></juquinha-filter-tooltip-table>
+          }
+        </div>
+      </th>
+      } @else {
+      <th>{{ thead }}</th>
+      } }
+    </tr>
+  </thead>
+
+  @if (isLoading()) {
+  <tbody>
+    @for (item of generateLoaders(); track $index) {
+    <tr>
+      @for (loader of headers(); track $index) {
+      <td>
+        <juquinha-skeleton width="100%" height="24px" />
+      </td>
+      }
+    </tr>
+    }
+  </tbody>
+  } @else {
+  <ng-content select="tbody" #tbody />
+  }
+</table>

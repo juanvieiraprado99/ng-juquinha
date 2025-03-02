@@ -1,0 +1,19 @@
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  transform: var(--juquinha-icons-transform);
+  padding: 0 var(--juquinha-field-padding-x);
+
+  &.float {
+    transform: var(--juquinha-icons-float-transform);
+  }
+
+  &.disabled ::ng-deep .icon * {
+    fill: var(--juquinha-field-disabled-text-color);
+    stroke: var(--juquinha-field-disabled-text-color);
+  }
+}

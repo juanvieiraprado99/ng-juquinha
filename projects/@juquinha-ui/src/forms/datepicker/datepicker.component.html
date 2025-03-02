@@ -1,0 +1,38 @@
+<juquinha-field-container
+  [iconLeft]="iconLeft()"
+  [disabled]="disabled()"
+  [iconRight]="iconRight()"
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hintText]="hintText()"
+  [mode]="config.fieldMode ?? 'static'"
+  [active]="config.fieldMode === 'float'"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+>
+  <input
+    class="field"
+    max="9999-12-31"
+    type="date"
+    [id]="id()"
+    [value]="value | date : 'yyyy-MM-dd'"
+    [tabIndex]="disabled() ? -1 : 1"
+    [disabled]="disabled()"
+    [ngClass]="getDefaultStylesClass()"
+    [autocomplete]="autocomplete()"
+    (keyup)="handleKeyPressed($event)"
+    (blur)="handleBlur()"
+    (focus)="onHandleFocus()"
+    (keyup)="handleKeyPressed($event)"
+    (input)="onInput($event)"
+    [min]="minDate()"
+  />
+
+  @if (showErrorMessage()) {
+  <div class="field-error">
+    <small class="field-error__text">{{ getErrorMessage() }}</small>
+  </div>
+  }
+</juquinha-field-container>

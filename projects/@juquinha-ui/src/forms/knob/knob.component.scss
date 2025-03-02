@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  width: fit-content;
+}
+
+.juquinha-knob-circular {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 15px auto 0 auto;
+
+  svg {
+    overflow: visible;
+  }
+
+  .value {
+    position: absolute;
+    font-size: 18px;
+    color: var(--juquinha-label-color);
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

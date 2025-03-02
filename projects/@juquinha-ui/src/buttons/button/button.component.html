@@ -1,0 +1,38 @@
+@if (confirmPopup()) {
+<juquinha-confirm-popup />
+}
+
+<button
+  class="juquinha-button"
+  [type]="type()"
+  (click)="handleClick($event)"
+  [disabled]="disabled() || loading()"
+  [ngClass]="buttonClass()"
+  [ariaLabel]="ariaLabel()"
+>
+  @if (iconLeft() && !loading()) {
+  <juquinha-icon
+    [name]="iconLeft()"
+    [color]="iconColor()"
+    [size]="iconSize()"
+  />
+  } @if (loading()) {
+  <juquinha-icon
+    name="loader"
+    [color]="iconColor()"
+    [rotate]="true"
+    [size]="iconSize()"
+  />
+  }
+
+  {{ label() }}
+  <ng-content></ng-content>
+
+  @if (iconRight()) {
+  <juquinha-icon
+    [name]="iconRight()"
+    [color]="iconColor()"
+    [size]="iconSize()"
+  />
+  }
+</button>

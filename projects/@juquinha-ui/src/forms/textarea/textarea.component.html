@@ -1,0 +1,44 @@
+<juquinha-field-container
+  [iconLeft]="iconLeft()"
+  [disabled]="disabled()"
+  [iconRight]="iconRight()"
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hintText]="hintText()"
+  [fieldId]="id()"
+  [active]="focused() || value"
+  [mode]="config.fieldMode ?? 'static'"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+>
+  <textarea
+    class="field"
+    [id]="id()"
+    [value]="value"
+    [placeholder]="
+      config.fieldMode === 'static' || focused() ? placeholder() : ''
+    "
+    [tabIndex]="disabled() ? -1 : 1"
+    [disabled]="disabled()"
+    [ngClass]="getDefaultStylesClass()"
+    [autocomplete]="autocomplete()"
+    [maxLength]="maxLength()"
+    (blur)="handleBlur()"
+    (focus)="onHandleFocus()"
+    (keyup)="handleKeyPressed($event)"
+    (input)="onInput($event)"
+  ></textarea>
+
+  @if (maxLength() !== 9999) {
+  <p class="max-length">
+    {{ value?.length }} de
+    {{ maxLength() }}
+  </p>
+  } @if (showErrorMessage()) {
+  <div class="field-error">
+    <small class="field-error__text">{{ getErrorMessage() }}</small>
+  </div>
+  }
+</juquinha-field-container>

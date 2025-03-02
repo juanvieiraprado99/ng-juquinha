@@ -1,0 +1,39 @@
+@if (message()) {
+<div class="juquinha-card" (click)="handleClick()" [ngClass]="toastClass()">
+  <div class="juquinha-card__message">
+    @if (icon()) {
+    <div class="message__icon">
+      <juquinha-icon [name]="icon()" size="20" [rotate]="icon() == 'loader'" />
+    </div>
+    }
+
+    <div class="message__content">
+      <p class="content__title text-bold">
+        {{ message().title }}
+      </p>
+      <p class="content__detail">
+        {{ message().detail }}
+      </p>
+      @if (message().link) {
+      <div class="mt-1">
+        <a class="content__link text-bold" (click)="navigateToLink($event)">{{
+          message().linkName
+        }}</a>
+      </div>
+      }
+    </div>
+  </div>
+
+  <button
+    class="juquinha-card__close"
+    type="button"
+    (click)="handleClickClose()"
+  >
+    <juquinha-icon
+      name="close"
+      [color]="message().severity === 'default' ? '#ffffff' : '#00000050'"
+      size="20"
+    />
+  </button>
+</div>
+}
