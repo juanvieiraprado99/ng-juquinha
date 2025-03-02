@@ -1,5 +1,5 @@
 {
-  "name": "@juquinha/ui",
+  "name": "@ng-juquinha/ui",
   "version": "17.4.3",
   "scripts": {
     "build": "ng build"
@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "sideEffects": false
 }

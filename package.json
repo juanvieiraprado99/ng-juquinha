@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-ui-dev": "cd C:\\projects\\ng-juquinha && ng build @juquinha/ui && cd ./dist/@juquinha-ui && npm pack && cd C:\\projects\\testing && npm i C:\\projects\\ng-juquinha\\dist\\@juquinha-ui\\juquinha-ui-17.4.3.tgz -f && ng s",
-    "storybook": "ng run @juquinha/ui:storybook",
-    "build-storybook": "ng run @juquinha/ui:build-storybook --docs",
-    "publish:juquinha-ui": "cd ./projects/@juquinha-ui && npm install --force && ng build && cd ../../dist/@juquinha-ui && npm publish"
+    "build-ui-dev": "cd C:\\projects\\ng-juquinha && ng build @ng-juquinha/ui && cd ./dist/@ng-juquinha-ui && npm pack && cd C:\\projects\\testing && npm i C:\\projects\\ng-juquinha\\dist\\@ng-juquinha-ui\\ng-juquinha-ui-17.4.3.tgz -f && ng s",
+    "storybook": "ng run @ng-juquinha/ui:storybook",
+    "build-storybook": "ng run @ng-juquinha/ui:build-storybook --docs",
+    "publish:juquinha-ui": "cd ./projects/@ng-juquinha-ui && npm install --force && ng build && cd ../../dist/@ng-juquinha-ui && npm publish"
   },
   "private": true,
   "dependencies": {

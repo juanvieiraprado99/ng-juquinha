@@ -10,7 +10,7 @@
 /node_modules
 npm-debug.log
 yarn-error.log
-/projects/@juquinha-ui/node_modules
+/projects/@ng-juquinha-ui/node_modules
 
 # IDEs and editors
 .idea/
