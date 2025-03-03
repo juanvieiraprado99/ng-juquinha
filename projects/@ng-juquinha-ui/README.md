@@ -4,7 +4,7 @@ NG-Juquinha
 
 ## 📜 Motivação (opcional)
 
-A biblioteca ng-juquinha primeiramente foi criada por um colega de equipe para atender ao negócio, já que tínhamos problemas com algumas outras bibliotecas, ela foi criada para ser de fácil utilização e não haver problemas entre as versões do angular, foi decidido que as versões do projeto iriam acompanhar a versão do angular.
+A biblioteca ng-juquinha primeiramente foi criada por um colega de equipe para atender ao negócio, já que tinhamos problemas com algumas outros bibliotecas, ela foi criada para ser de fácil utilização e não haver problemas entre as versões do angular, foi decidido que as versões do projeto iriam acompanhar a versão do angular.
 
 Me senti inspirado em me basear no trabalho feito e criar uma biblioteca de uso público, que possam utilizar componentes simples, porém muito úteis.
 

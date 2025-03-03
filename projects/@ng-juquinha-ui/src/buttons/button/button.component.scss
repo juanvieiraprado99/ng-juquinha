@@ -33,16 +33,28 @@
     &small {
       font-size: var(--juquinha-button-small-font-size);
       padding: var(--juquinha-button-small-padding);
+
+      &.variant-secondary {
+        padding: var(--juquinha-button-small-secondary-padding);
+      }
     }
 
     &medium {
       font-size: var(--juquinha-button-medium-font-size);
       padding: var(--juquinha-button-medium-padding);
+
+      &.variant-secondary {
+        padding: var(--juquinha-button-medium-secondary-padding);
+      }
     }
 
     &large {
       font-size: var(--juquinha-button-large-font-size);
       padding: var(--juquinha-button-large-padding);
+
+      &.variant-secondary {
+        padding: var(--juquinha-button-large-secondary-padding);
+      }
     }
   }
 
@@ -73,6 +85,19 @@
         &neutral {
           background-color: var(--juquinha-neutral-color-100);
           color: var(--juquinha-neutral-color-900);
+
+          &:focus {
+            box-shadow: var(--juquinha-button-contrast-secondary-focus);
+          }
+        }
+
+        &contrast {
+          background-color: var(--juquinha-neutral-color-1000);
+          color: var(--juquinha-neutral-color-0);
+
+          &:focus {
+            box-shadow: var(--juquinha-button-contrast-secondary-focus);
+          }
         }
       }
     }
@@ -81,6 +106,33 @@
       background-color: transparent;
       border: 1px solid var(--juquinha-button-color);
       color: var(--juquinha-button-text-color-in-light);
+
+      &.theme- {
+        &neutral {
+          border: 1px solid var(--juquinha-neutral-color-800);
+          color: var(--juquinha-neutral-color-900);
+
+          &:focus {
+            box-shadow: var(--juquinha-button-contrast-secondary-focus);
+          }
+
+          &:hover {
+            border: 1px solid var(--juquinha-neutral-color-800);
+          }
+        }
+        &contrast {
+          border: 1px solid var(--juquinha-neutral-color-1000);
+          color: var(--juquinha-neutral-color-1100);
+
+          &:focus {
+            box-shadow: var(--juquinha-button-contrast-secondary-focus);
+          }
+
+          &:hover {
+            border: 1px solid var(--juquinha-neutral-color-1100);
+          }
+        }
+      }
 
       &:hover {
         border: 1px solid var(--juquinha-button-color-hover);
@@ -104,6 +156,28 @@
     &tertiary {
       color: var(--juquinha-button-text-color-in-light);
       background-color: transparent;
+
+      &.theme- {
+        &contrast {
+          color: var(--juquinha-neutral-color-1100);
+
+          &:focus {
+            box-shadow: var(--juquinha-button-contrast-secondary-focus);
+          }
+        }
+
+        &neutral {
+          color: var(--juquinha-neutral-color-900);
+
+          &:focus {
+            box-shadow: var(--juquinha-button-contrast-secondary-focus);
+          }
+
+          &:hover {
+            border: 1px solid var(--juquinha-neutral-color-800);
+          }
+        }
+      }
 
       &:hover {
         background-color: transparent;
