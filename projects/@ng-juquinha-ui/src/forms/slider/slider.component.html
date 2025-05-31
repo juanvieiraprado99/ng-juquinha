@@ -1,0 +1,119 @@
+<juquinha-field-container
+  [disabled]="disabled()"
+  [label]="label()"
+  [subLabel]="subLabel()"
+  [hintText]="hintText()"
+  [fieldId]="id()"
+  [tooltipTitle]="tooltipTitle()"
+  [tooltipText]="tooltipText()"
+  [tooltipIcon]="tooltipIcon()"
+  [tooltipPosition]="tooltipPosition()"
+>
+  <div class="slider-container">
+    @if (showBadge() && (badgeDirection() == 'left' || badgeDirection() == ''))
+    {
+    <div class="slider-input-container" [style.--badge-color]="badgeColor()">
+      @if (iconLeft()) {
+      <juquinha-icon [name]="iconLeft()" size="20px" [color]="iconColor()" />
+      }
+      <input
+        type="text"
+        [maxLength]="maxLengthBadge()"
+        class="slider-input"
+        juquinhaOnlyNumbers
+        [value]="inputValue1()"
+        (input)="onInputTyping($event, true)"
+        [disabled]="disabled()"
+        [style.color]="textColor()"
+      />
+    </div>
+    }
+
+    <div class="slider-wrapper">
+      <div
+        class="slider-background"
+        [style.background]="sliderBackgroundColor()"
+      ></div>
+
+      <div
+        class="slider-fill"
+        [style.left.%]="getFillLeft()"
+        [style.width.%]="getFillWidth()"
+        [style.background]="sliderFillColor()"
+      ></div>
+
+      <input
+        type="range"
+        [id]="id() + '-1'"
+        [min]="min()"
+        [max]="max()"
+        [step]="step()"
+        [value]="value1()"
+        (input)="onSliderChange($event, true, true)"
+        (mouseenter)="onSliderChange($event, true, true)"
+        (mouseleave)="showBalloon1.set(false)"
+        [disabled]="disabled()"
+        [ngClass]="getDefaultStylesClass()"
+        [style.--thumb-color]="thumbColor()"
+        [style.--thumb-size]="thumbSize()"
+      />
+      @if (range()) {
+      <input
+        type="range"
+        [id]="id() + '-2'"
+        [min]="min()"
+        [max]="max()"
+        [step]="step()"
+        [value]="value2()"
+        (input)="onSliderChange($event, false, true)"
+        (mouseenter)="onSliderChange($event, false, true)"
+        (mouseleave)="showBalloon2.set(false)"
+        [disabled]="disabled()"
+        [ngClass]="getDefaultStylesClass()"
+        [style.--thumb-color]="thumbColor()"
+        [style.--thumb-size]="thumbSize()"
+      />
+      } @if (showBalloon() && showBalloon1()) {
+      <div
+        class="slider-balloon"
+        [style.left.px]="balloonPosition1().x"
+        [style.top.px]="balloonPosition1().y"
+      >
+        {{ value1() }}
+      </div>
+      } @if (showBalloon() && showBalloon2()) {
+      <div
+        class="slider-balloon"
+        [style.left.px]="balloonPosition2().x"
+        [style.top.px]="balloonPosition2().y"
+      >
+        {{ value2() }}
+      </div>
+      }
+    </div>
+    @if (showBadge() && (badgeDirection() == 'right' || badgeDirection() == ''))
+    {
+    <div class="slider-input-container" [style.--badge-color]="badgeColor()">
+      @if (iconRight()) {
+      <juquinha-icon [name]="iconRight()" size="20px" [color]="iconColor()" />
+      }
+      <input
+        type="text"
+        [maxLength]="maxLengthBadge()"
+        class="slider-input"
+        juquinhaOnlyNumbers
+        [value]="range() ? inputValue2() : inputValue1()"
+        (input)="onInputTyping($event, range() ? false : true)"
+        [disabled]="disabled()"
+        [style.color]="textColor()"
+      />
+    </div>
+    }
+  </div>
+
+  @if (showErrorMessage()) {
+  <div class="field-error">
+    <small class="field-error__text">{{ getErrorMessage() }}</small>
+  </div>
+  }
+</juquinha-field-container>

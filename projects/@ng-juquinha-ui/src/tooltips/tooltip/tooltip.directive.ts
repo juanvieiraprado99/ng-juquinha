@@ -1,13 +1,13 @@
 import {
   ApplicationRef,
   ComponentFactoryResolver,
-  ComponentRef,
+  type ComponentRef,
   Directive,
   ElementRef,
-  EmbeddedViewRef,
+  type EmbeddedViewRef,
   HostListener,
   Injector,
-  OnDestroy,
+  type OnDestroy,
   inject,
   input,
 } from "@angular/core"

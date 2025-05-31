@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from "@angular/core"
-import { position } from "../../tooltips/tooltip/tooltip.types"
-import { mode } from "../common/common.types"
+import type { position } from "../../tooltips/tooltip/tooltip.types"
+import type { mode } from "../common/common.types"
 import { HintTextComponent } from "../hint-text/hint-text.component"
 import { IconsComponent } from "../icons/icons.component"
 import { LabelComponent } from "../label/label.component"

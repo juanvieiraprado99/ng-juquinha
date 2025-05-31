@@ -4,6 +4,7 @@
 
 .checkbox__container {
   display: flex;
+  align-items: center;
   gap: 8px;
   margin: var(--juquinha-field-margin);
   accent-color: var(--juquinha-primary-color);
@@ -29,6 +30,10 @@
   &.checkbox--active {
     background-color: var(--juquinha-checkbox-background-color-active);
     border: var(--juquinha-checkbox-border-active);
+  }
+
+  &.checkbox--circle {
+    border-radius: 50%;
   }
 
   &:focus {

@@ -7,6 +7,7 @@
   <div class="search" #search>
     <juquinha-input
       [label]="searchLabel"
+      placeholder="Procure um item..."
       [ngStyle]="{ width: width + 'px' }"
       [(ngModel)]="filteredText"
       iconLeft="search"
@@ -14,7 +15,7 @@
     />
   </div>
   } @if (showSelectAll && multiple) {
-  <div #selectAllContainer>
+  <div class="select_all" #selectAllContainer>
     <juquinha-checkbox
       label="Selecionar todos"
       [(ngModel)]="selectAll"
@@ -25,9 +26,17 @@
   <div
     #optionsScroller
     class="options__scroller"
-    [ngStyle]="{ height: containerHeight + 'px', overflow: 'auto' }"
+    [ngStyle]="{
+      height: filteredOptions().length > 0 ? containerHeight + 'px' : 'auto',
+      overflow: filteredOptions().length > 0 ? 'auto' : 'visible'
+    }"
   >
-    <div class="options__items" [ngStyle]="{ width: width + 'px' }">
+    <div
+      #optionsItems
+      class="options__items"
+      [ngClass]="{ 'options__items--empty': filteredOptions().length === 0 }"
+      [ngStyle]="{ width: width + 'px' }"
+    >
       @for (item of visibleItems(); track $index) {
       <div
         class="items__item"

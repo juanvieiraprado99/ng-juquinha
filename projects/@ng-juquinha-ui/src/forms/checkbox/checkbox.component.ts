@@ -6,6 +6,7 @@ import type { position } from "../../tooltips/tooltip/tooltip.types"
 import { ControlBase } from "../common/control-base"
 import { HintTextComponent } from "../hint-text/hint-text.component"
 import { LabelComponent } from "../label/label.component"
+import type { CheckboxShape } from "./checkbox.types"
 
 @Component({
   selector: "juquinha-checkbox",
@@ -30,6 +31,7 @@ export class CheckboxComponent
   tooltipText = input<string>()
   tooltipIcon = input<string>()
   tooltipPosition = input<position>("top")
+  shape = input<CheckboxShape>("square")
 
   switchValue() {
     if (this.disabled()) return

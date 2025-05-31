@@ -13,24 +13,43 @@
   [tooltipIcon]="tooltipIcon()"
   [tooltipPosition]="tooltipPosition()"
 >
-  <input
-    class="field"
-    [id]="id()"
-    [value]="value"
-    [type]="type()"
-    [placeholder]="
-      config.fieldMode === 'static' || focused() ? placeholder() : ''
-    "
-    [mask]="mask()"
-    [autocomplete]="autocomplete()"
-    [ngClass]="getDefaultStylesClass()"
-    [tabIndex]="disabled() ? -1 : 1"
-    [maxLength]="maxLength()"
-    (keyup)="handleKeyPressed($event)"
-    (focus)="onHandleFocus()"
-    (input)="onInput($event)"
-    (blur)="handleBlur()"
-  />
+  <div class="field-wrapper">
+    <input
+      #inputElement
+      class="field"
+      [id]="id()"
+      [value]="value"
+      [type]="inputType()"
+      [placeholder]="
+        config.fieldMode === 'static' || focused() ? placeholder() : ''
+      "
+      [mask]="mask()"
+      [thousandSeparator]="thousandSeparator()"
+      [prefix]="prefix()"
+      [suffix]="suffix()"
+      [separatorLimit]="separatorLimit()"
+      [showMaskTyped]="showMaskTyped()"
+      [autocomplete]="autocomplete()"
+      [ngClass]="getDefaultStylesClass()"
+      [tabIndex]="disabled() ? -1 : 1"
+      [maxLength]="maxLength()"
+      (keyup)="handleKeyPressed($event)"
+      (focus)="onHandleFocus()"
+      (input)="onInput($event)"
+      (blur)="handleBlur()"
+    />
+
+    @if (showPasswordToggle()) {
+    <juquinha-icon
+      [name]="passwordToggleIcon()"
+      size="18px"
+      class="password-toggle-icon"
+      (click)="togglePasswordVisibility()"
+      [attr.aria-label]="passwordVisible() ? 'Ocultar senha' : 'Mostrar senha'"
+      [attr.title]="passwordVisible() ? 'Ocultar senha' : 'Mostrar senha'"
+    />
+    }
+  </div>
 
   @if (showErrorMessage()) {
   <div class="field-error">

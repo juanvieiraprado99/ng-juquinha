@@ -55,6 +55,18 @@
             var(--juquinha-switch-button-circle-margin-x)
         );
     }
+
+    &:active .box__circle {
+      width: calc(var(--juquinha-switch-button-circle-width) * 1.4);
+      margin-left: calc(
+        100% - calc(var(--juquinha-switch-button-circle-width) * 1.4) -
+          var(--juquinha-switch-button-circle-margin-x)
+      );
+    }
+  }
+
+  &:active:not(.box--active) .box__circle {
+    width: calc(var(--juquinha-switch-button-circle-width) * 1.4);
   }
 }
 

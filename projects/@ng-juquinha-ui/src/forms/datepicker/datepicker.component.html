@@ -15,7 +15,7 @@
   <input
     class="field"
     max="9999-12-31"
-    type="date"
+    [type]="type()"
     [id]="id()"
     [value]="value | date : 'yyyy-MM-dd'"
     [tabIndex]="disabled() ? -1 : 1"

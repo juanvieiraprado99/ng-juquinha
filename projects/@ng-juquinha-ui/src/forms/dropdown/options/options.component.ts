@@ -2,11 +2,10 @@ import { NgClass, NgStyle } from "@angular/common"
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
+  type ElementRef,
   HostListener,
   NgZone,
-  OnDestroy,
-  OnInit,
+  type OnInit,
   ViewChild,
   inject,
   output,
@@ -36,7 +35,7 @@ const BUFFER_ITEMS = 0
   styleUrl: "./options.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OptionsComponent implements OnInit, OnDestroy {
+export class OptionsComponent implements OnInit {
   private readonly ngZone = inject(NgZone)
 
   options: any[] = []
@@ -69,27 +68,28 @@ export class OptionsComponent implements OnInit, OnDestroy {
 
   onItemSelected = output<any>()
   onClickOutside = output()
+  onEndOfListReached = output()
 
   @ViewChild("optionsContainer") private optionsRef!: ElementRef
   @ViewChild("optionsScroller") private scrollerRef!: ElementRef
+  @ViewChild("optionsItems") private list!: ElementRef
   @ViewChild("search") private searchRef!: ElementRef
   @ViewChild("selectAllContainer") private selectAllRef!: ElementRef
+  @ViewChild("endMarker") private endMarkerRef!: ElementRef
 
   @HostListener("window:click", ["$event"])
   clickEventListener(event: Event) {
-    if (this.buttonElementRef!.nativeElement.contains(event.target)) return
+    const target = event.target as HTMLElement
 
-    if (this.search && this.searchRef!.nativeElement.contains(event.target))
-      return
-    if (
-      (this.showSelectAll &&
-        this.selectAllRef!.nativeElement.contains(event.target)) ||
-      event.target instanceof SVGElement
-    )
-      return
+    const clickedInsideComponent =
+      this.buttonElementRef?.nativeElement.contains(target) ||
+      this.optionsRef?.nativeElement.contains(target) ||
+      this.searchRef?.nativeElement.contains(target) ||
+      this.selectAllRef?.nativeElement.contains(target)
 
-    if (this.optionsRef.nativeElement.contains(event.target) && this.multiple)
+    if (clickedInsideComponent) {
       return
+    }
 
     this.onClickOutside.emit()
   }
@@ -155,8 +155,14 @@ export class OptionsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    if (this.buttonElementRef == null) {
+      throw new Error(
+        "buttonElementRef is required. Please provide a reference to the button element."
+      )
+    }
+
     const { left, bottom, width } =
-      this.buttonElementRef!.nativeElement.getBoundingClientRect()
+      this.buttonElementRef.nativeElement.getBoundingClientRect()
 
     this.width = width
     this.left = Math.round(left)
@@ -178,7 +184,7 @@ export class OptionsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.scrollListener && this.scrollerRef?.nativeElement) {
-      this.scrollerRef.nativeElement.removeEventListener(
+      this.scrollerRef?.nativeElement.removeEventListener(
         "scroll",
         this.scrollListener
       )
@@ -186,7 +192,8 @@ export class OptionsComponent implements OnInit, OnDestroy {
   }
 
   handleScroll(event: Event): void {
-    this.scrollTop = (event.target as HTMLElement).scrollTop
+    const element = event.target as HTMLElement
+    this.scrollTop = element.scrollTop
 
     window.requestAnimationFrame(() => {
       this.ngZone.run(() => {
@@ -284,6 +291,7 @@ export class OptionsComponent implements OnInit, OnDestroy {
         option => option[this.valueKey] === itemValue
       )
       this.onItemSelected.emit(this.value)
+      this.onClickOutside.emit()
     }
   }
 

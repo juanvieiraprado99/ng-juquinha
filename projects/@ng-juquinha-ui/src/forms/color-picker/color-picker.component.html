@@ -9,9 +9,9 @@
   [tooltipIcon]="tooltipIcon()"
   [tooltipPosition]="tooltipPosition()"
 >
-  <div class="field--picker">
+  <div class="field-picker-container">
     <input
-      class="field field--color"
+      class="field-picker"
       [id]="id()"
       type="color"
       [value]="value"
@@ -20,8 +20,8 @@
       [disabled]="disabled()"
       [ngClass]="getDefaultStylesClass()"
     />
-    <p class="color--value" (click)="copyToClipboard(value)">
-      {{ copyText() == "" ? value : copyText() }}
+    <p class="color--value" (click)="copyToClipboard()">
+      {{ copyText() == "" ? formattedColor() : copyText() }}
     </p>
   </div>
 

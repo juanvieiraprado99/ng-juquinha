@@ -2,7 +2,7 @@ import { NgClass, NgStyle } from "@angular/common"
 import { Component, computed, inject, input } from "@angular/core"
 import { DomSanitizer } from "@angular/platform-browser"
 import { ConfigService } from "../../services/config.service"
-import { Icon } from "./icon.model"
+import type { Icon } from "./icon.model"
 
 import { ICONS as JUQUINHA_ICONS } from "./themes/juquinha.data"
 
@@ -35,12 +35,16 @@ export class IconComponent {
   })
 
   iconHTML = computed(() => {
-    const icon: Icon | undefined = this.icons().find(
+    let icon: Icon | undefined = this.icons().find(
       (x: Icon) => x.identifier === this.name()
     )
-    if (!icon) throw `Icon ${this.name} not found`
+    if (!icon) {
+      icon = this.icons().find((x: Icon) => x.identifier === "select-box")
+      console.warn("O ícone informado não foi encontrado:", this.name())
+      console.warn('Usando o ícone padrão "select-box" como fallback.')
+    }
 
-    const iconHTML = this.replaceIconProperties(icon.content)
+    const iconHTML = this.replaceIconProperties(icon!.content)
 
     return this.sanitizer.bypassSecurityTrustHtml(iconHTML)
   })

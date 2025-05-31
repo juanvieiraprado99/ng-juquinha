@@ -42,6 +42,20 @@
 
 .upload__info {
   gap: 8px;
+  text-align: center;
+}
+
+.info__accepted-types {
+  color: var(--juquinha-neutral-color-600);
+  font-size: 0.85rem;
+}
+
+.text-muted {
+  color: var(--juquinha-neutral-color-600);
+}
+
+.text-sm {
+  font-size: 0.875rem;
 }
 
 .juquinha-file__files {
@@ -76,7 +90,7 @@
 }
 
 .file__name {
-  max-width: 200px;
+  max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -96,4 +110,17 @@
 
 .dragging {
   animation: pulse 1s infinite;
+}
+
+.actions__action {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: var(--juquinha-transition-delay);
+
+  &:hover {
+    background-color: var(--juquinha-neutral-color-200);
+  }
 }

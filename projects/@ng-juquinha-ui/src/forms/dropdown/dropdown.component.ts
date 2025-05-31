@@ -6,6 +6,8 @@ import {
   type ComponentRef,
   type ElementRef,
   type EmbeddedViewRef,
+  OnChanges,
+  SimpleChanges,
   ViewChild,
   forwardRef,
   inject,
@@ -36,32 +38,153 @@ import { OptionsComponent } from "./options/options.component"
 })
 export class DropdownComponent
   extends ControlBase
-  implements ControlValueAccessor
+  implements ControlValueAccessor, OnChanges
 {
   private readonly componentFactoryResolver = inject(ComponentFactoryResolver)
   private applicationRef = inject(ApplicationRef)
 
+  /**
+   * @description
+   * Responsável por receber a listagem de itens.
+   *
+   */
   options = input<any[]>([])
+  /**
+   * @description
+   * Propriedade reponsável por atribuir a label da opção.
+   *
+   */
   labelKey = input("label")
+  /**
+   * @description
+   * Propriedade reponsável por atribuir o valor da opção.
+   *
+   */
   valueKey = input("value")
+  /**
+   * @description
+   * Exibe o botão para limpar a opção selecionada.
+   *
+   */
   showClear = input(true)
+  /**
+   * @description
+   * Permite a escolha de multiplas opções.
+   *
+   */
   multiple = input(false)
-  search = input(false, { transform: value => value === "true" })
+  /**
+   * @description
+   * Permite pesquisar uma opção dentro da listagem.
+   *
+   */
+  search = input(false, {
+    transform: (value: string | boolean) =>
+      typeof value === "string" ? value === "" || value === "true" : value,
+  })
+  /**
+   * @description
+   * Label para o campo de pesquisa.
+   *
+   */
   searchLabel = input("")
+  /**
+   * @description
+   * Habilita o estado de loading no componente.
+   *
+   */
   loading = input(false)
+  /**
+   * @description
+   * Habilita o scroll virtual, podendo ser passada uma listagem grande,
+   * onde apenas uma pequena quantidade é renderizada por vez.
+   *
+   */
   virtualScroll = input(false)
+  /**
+   * @description
+   * O checkbox para seleção de todos os itens estará disponível
+   * caso a propriedade `multiple` e `showSelectAll` sejam true.
+   *
+   */
   showSelectAll = input(false)
+  /**
+   * @description
+   * Mensgem exibida quando não houver opções.
+   * Mensagem padrão `Nenhuma opção foi encontrada`
+   *
+   */
   emptyMessage = input("Nenhuma opção foi encontrada")
+  /**
+   * @description
+   * Mensgem exibida quando houver carregamento.
+   * Mensagem padrão `Carregando opções...`
+   *
+   */
   loadingPlaceholder = input("Carregando opções...")
+  /**
+   * @description
+   * Titulo da mensagem do tooltip.
+   *
+   */
   tooltipTitle = input<string>()
+  /**
+   * @description
+   * Descrição do tooltip.
+   *
+   */
   tooltipText = input<string>()
+  /**
+   * @description
+   * Ícone que pode ser exibido ao mostrar o tooltip.
+   *
+   */
   tooltipIcon = input<string>()
+  /**
+   * @description
+   * Posição que o tooltip irá aparecer, pondendo ser:
+   * - `left`: esquerda
+   * - `right`: direita
+   * - `top`: topo
+   * - `bottom`: abaixo
+   *
+   */
   tooltipPosition = input<position>("top")
-
+  /**
+   * @description
+   * Emite um evento quando selecionar uma opção.
+   *
+   */
   onSelect = output<any>()
+  /**
+   * @description
+   * Emite um evento quando houver um click no botão para limpar.
+   *
+   */
   onClear = output<void>()
+  /**
+   * @description
+   * Se `enablePagedRequests` estiver habilitado, sempre que chegar ao final da listagem,
+   * será enviado um evento que pode ser utilizado para:
+   * - Novas requests para atualizar a listagem
+   *
+   */
 
   dropdownOpened = signal(false)
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes["options"]?.previousValue) {
+      if (
+        changes["options"]?.previousValue === null ||
+        changes["options"]?.previousValue === undefined ||
+        changes["options"]?.previousValue === "" ||
+        changes["options"]?.previousValue.length === 0
+      ) {
+        return
+      }
+      this.switchDropdownOpenedState()
+    }
+  }
 
   @ViewChild("dropdownButton") public buttonRef!: ElementRef
   private optionComponentRef: ComponentRef<OptionsComponent> | null = null
@@ -88,6 +211,8 @@ export class DropdownComponent
       .rootNodes[0]
 
     document.body.appendChild(domElem)
+
+    this.dropdownOpened.set(true)
 
     this.setOptionComponentProperties()
   }
@@ -123,6 +248,7 @@ export class DropdownComponent
     this.applicationRef.detachView(this.optionComponentRef.hostView)
     this.optionComponentRef.destroy()
     this.optionComponentRef = null
+    this.dropdownOpened.set(false)
 
     this.handleBlur()
   }
@@ -153,7 +279,7 @@ export class DropdownComponent
       if (this.value.length === 0) return this.placeholder()
 
       const values: string[] = []
-      for (let valueKey of this.value) {
+      for (const valueKey of this.value) {
         const item = this.options().find(
           (x: any) => x[this.valueKey()] === valueKey
         )

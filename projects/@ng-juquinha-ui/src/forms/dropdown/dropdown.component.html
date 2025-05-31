@@ -49,8 +49,7 @@
       color="var(--juquinha-neutral-color-700)"
     />
   </div>
-  } @if (showClear() && (value != undefined && value != null && value !== '' &&
-  value.length > 0)) {
+  } @if (showClear() && value) {
   <button
     class="juquinha-dropdown__clear-btn"
     type="button"

@@ -71,14 +71,24 @@ export class EditorComponent
 
   alterFont(value: Event) {
     const selectedValue = (value.target as HTMLSelectElement).value
-    document.execCommand("fontSize", false, parseInt(selectedValue) as any)
+    document.execCommand(
+      "fontSize",
+      false,
+      Number.parseInt(selectedValue) as any
+    )
   }
 
   @HostListener("input")
   handleChange() {
     if (!this.divElement?.nativeElement) return
 
-    const value = this.divElement.nativeElement.innerHTML
+    let value = this.divElement.nativeElement.innerHTML
+
+    if (this.maxLength && value.length > this.maxLength()) {
+      value = value.substring(0, this.maxLength())
+      this.divElement.nativeElement.innerHTML = value
+    }
+
     this.value = value === "<br>" ? "" : value
     this.onChangeFn(this.value)
     this.handleChanged()

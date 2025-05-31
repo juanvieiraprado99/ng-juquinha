@@ -10,5 +10,4 @@ export interface ToastMessage {
   externalLink?: boolean
   severity?: severity
   onClick?: VoidFunction
-  isLoading?: boolean
 }

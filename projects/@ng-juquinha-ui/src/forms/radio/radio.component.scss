@@ -74,6 +74,12 @@
   animation: scaleAnimation 0.2s ease;
 }
 
+.option__label {
+  cursor: pointer;
+  font-size: var(--juquinha-label-font-size);
+  color: var(--juquinha-label-color);
+}
+
 @keyframes scaleAnimation {
   0% {
     transform: scale(0.3);

@@ -3,7 +3,7 @@
   [id]="id()"
   (change)="handleSelectFile($event)"
   [multiple]="multiple()"
-  [accept]="accept()"
+  [accept]="getAcceptAttributeValue()"
   [disabled]="disabled()"
   hidden
 />
@@ -38,8 +38,13 @@
     <juquinha-icon name="upload" />
 
     <div class="upload__info">
-      <p class="info__title text-bold">Upload file</p>
+      <p class="info__title text-bold">
+        Upload de {{ multiple() ? "arquivos" : "arquivo" }}
+      </p>
       <p class="info__hint-text">{{ hintText() }}</p>
+      <p class="info__accepted-types text-sm text-muted">
+        Tipos aceitos: {{ getFileTypeDescription() }}
+      </p>
     </div>
 
     <div class="upload__btn">
@@ -89,7 +94,19 @@
       <div class="file__actions flex">
         <ng-content />
 
-        @if (removable() || file.removable) {
+        @if (showAction()) {
+        <button
+          class="actions__action"
+          type="button"
+          (click)="handleClickAction(file)"
+        >
+          <juquinha-icon
+            [name]="actionIcon()"
+            size="16"
+            color="var(--juquinha-neutral-color-700)"
+          />
+        </button>
+        } @if (removable() || file.removable) {
         <button class="actions__action" type="button" (click)="remove(i)">
           <juquinha-icon
             name="close"

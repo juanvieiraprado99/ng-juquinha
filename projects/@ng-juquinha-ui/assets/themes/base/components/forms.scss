@@ -78,8 +78,8 @@
 
   // Color Picker
   --juquinha-color-picker-field-margin: 16px 0 0 10px;
-  --juquinha-color-picker-field: 262px;
-  --juquinha-color-picker-field-color-padding: 0px 74px 0 30px;
+  --juquinha-color-picker-field: 324px;
+  --juquinha-color-picker-field-color-padding: 0px 138px 0 10px;
   --juquinha-color-picker-field-color-height: 42px;
   --juquinha-color-picker-color-value-margin: -36px 0px 0 192px;
 
@@ -140,27 +140,52 @@
   --juquinha-file-card-border-radius: 12px;
   --juquinha-file-card-padding: 12px;
   --juquinha-file-card-background-color: var(--juquinha-neutral-color-0);
+
+  // Slider
+  --juquinha-slide-thumb-color: var(--juquinha-primary-color);
+  --juquinha-slide-thumb-size: 16px;
+  --juquinha-slide-badge-font-color: var(--juquinha-neutral-color-0);
+  --juquinha-slide-icon-color: var(--juquinha-neutral-color-1100);
 }
 
-.colorpick-eyedropper-input-trigger {
-  position: absolute;
-  margin: var(--juquinha-color-picker-field-margin);
+.field-picker-container {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
-.field--picker {
-  width: var(--juquinha-color-picker-field);
-  position: relative;
+.field-picker {
+  width: 24px;
+  height: 24px;
+  outline: none;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+
+  &::-webkit-color-swatch {
+    border: 0;
+  }
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+
+  &:focus {
+    border: var(--juquinha-field-border-focus);
+    box-shadow: var(--juquinha-field-box-shadow-focus);
+  }
 }
 
 .color--value {
-  position: absolute;
-  margin: var(--juquinha-color-picker-color-value-margin);
   cursor: pointer;
 }
 
 .field {
   outline: none;
   width: 100%;
+  max-width: 100%;
   padding: var(--juquinha-field-padding-y) var(--juquinha-field-padding-x);
   font-size: var(--juquinha-field-font-size);
   border-radius: var(--juquinha-field-border-radius);
@@ -246,4 +271,5 @@
   display: flex;
   gap: var(--juquinha-chips-container-gap);
   margin-bottom: var(--juquinha-chips-container-margin-bottom);
+  flex-wrap: wrap;
 }

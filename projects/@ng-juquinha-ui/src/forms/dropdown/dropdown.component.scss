@@ -1,6 +1,6 @@
 :host {
   display: block;
-  height: 75px;
+  max-height: 76px;
 }
 
 .field {
@@ -12,10 +12,14 @@
 .field__value {
   overflow: hidden;
   display: -webkit-box;
-  line-clamp: 1;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   -webkit-box-orient: vertical;
   padding-right: 48px;
+}
+
+.arrow__icon {
+  background-color: #fff;
 }
 
 .juquinha-dropdown__arrow {

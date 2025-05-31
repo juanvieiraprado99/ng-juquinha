@@ -1,17 +1,46 @@
 .options {
   position: absolute;
   z-index: 10;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 8px;
 }
 
-.options__items {
+.search,
+.select_all {
+  background-color: #fff;
+}
+
+::ng-deep {
+  body
+    > juquinha-options
+    > div
+    > div.select_all.ng-star-inserted
+    > juquinha-checkbox
+    > div {
+    background-color: #fff;
+    margin: 0;
+    padding: var(--juquinha-field-margin);
+  }
+}
+
+.options__scroller {
   max-height: 200px;
+}
+
+.options__items {
   overflow-y: auto;
   z-index: 5;
   background-color: #fff;
   border: 1px solid var(--juquinha-neutral-color-400);
   border-radius: 8px;
+
+  &.options__items--empty {
+    background-color: #fff;
+    border: 1px solid var(--juquinha-neutral-color-400);
+    border-radius: 8px;
+    min-height: auto;
+    max-height: auto;
+  }
 
   &::-webkit-scrollbar {
     width: 8px;

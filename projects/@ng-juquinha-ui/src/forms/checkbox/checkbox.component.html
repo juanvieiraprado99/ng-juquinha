@@ -3,7 +3,10 @@
 
   <button
     class="container__checkbox"
-    [ngClass]="{ 'checkbox--active': value }"
+    [ngClass]="{
+      'checkbox--active': value,
+      'checkbox--circle': shape() === 'circle'
+    }"
     type="button"
     [tabIndex]="disabled() ? -1 : 1"
     (click)="switchValue()"

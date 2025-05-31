@@ -1,9 +1,27 @@
+<!-- card.component.html -->
 @if (message()) {
-<div class="juquinha-card" (click)="handleClick()" [ngClass]="toastClass()">
+<div
+  class="juquinha-card"
+  (click)="handleClick()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  [ngClass]="toastClass()"
+>
+  <!-- Barra de progresso -->
+  @if (message().time && message().time! > 0) {
+  <div class="juquinha-card__progress-container">
+    <div class="juquinha-card__progress-bar" [style.width.%]="progress()"></div>
+  </div>
+  }
+
   <div class="juquinha-card__message">
     @if (icon()) {
     <div class="message__icon">
-      <juquinha-icon [name]="icon()" size="20" [rotate]="icon() == 'loader'" />
+      <juquinha-icon
+        [name]="icon()"
+        size="20px"
+        [rotate]="icon() == 'loader'"
+      />
     </div>
     }
 
@@ -31,7 +49,11 @@
   >
     <juquinha-icon
       name="close"
-      [color]="message().severity === 'default' ? '#ffffff' : '#00000050'"
+      [color]="
+        ['default', 'info', 'error'].includes(message().severity!)
+          ? '#ffffff'
+          : 'var(--juquinha-neutral-color-1000)'
+      "
       size="20"
     />
   </button>
